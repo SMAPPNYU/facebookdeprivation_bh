@@ -15,3 +15,25 @@ Facebook accounts and assess inter-ethnic attitudes as a primary
 outcome of interest. We find evidence that, counter pre-registered expectations, people who remained active on Facebook report higher regard for ethnic out-groups than those who deactivated their profiles, but this effect was highly conditional on the composition of one’s offline environment. If that environment is characterized by few to none opportunities for inter-group contact, deactivation may move users to an environment even more homogeneous, and echo chambers even more pronounced, than the ones they experience online. We also extend the analysis to include measures of factual news knowledge and subjective well-being, thus representing the first experimental study of the welfare effects of social media conducted outside of the context of advanced democracies. Our findings suggest that deactivation from social media leads to an increase in subjective well-being and a decrease in news knowledge, replicating results for recent research in the United States in a very different context, thus increasing our confidence in the generalizability of these effects. 
 
 ## Data
+
+bosnia_data.csv contains the anonymized dataset used for all the analysis. Personal information about individual users has anonymized to ensure participant privacy, and the original Facebook URLs have been replaced by random numbers. 
+sept18_active_attrition_c.xlsx contains drop-out participants from the control group
+sept18_deactive_attrition_c.xlsx contains drop-out participants from the treatment group
+
+
+## Code
+Below is the code necessary for replicating all the figures/tables in the main text of the paper and supplementary analysis.
+
+code_review_megan.R 
+
+maintext_plots.R generates all the figures in the main text (Fig 1, Fig 2 and Fig 3); the models from which it derives coefficients and standard errors are specified within the code_review_megan.R script 
+
+offline_networks_megan.R
+online_networks_megan.R
+offline_online_interaction.R
+
+
+
+
+
+

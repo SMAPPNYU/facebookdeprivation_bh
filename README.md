@@ -16,21 +16,23 @@ outcome of interest. We find evidence that, counter pre-registered expectations,
 
 ## Data
 
-bosnia_data.csv contains the anonymized dataset used for all the analysis. Personal information about individual users has anonymized to ensure participant privacy, and the original Facebook URLs have been replaced by random numbers. 
-sept18_active_attrition_c.xlsx contains drop-out participants from the control group
-sept18_deactive_attrition_c.xlsx contains drop-out participants from the treatment group
+- bosnia_data.csv contains the anonymized dataset used for all the analysis. Personal information about individual users has anonymized to ensure participant privacy, and the original Facebook URLs have been replaced by random numbers. 
+
+- sept18_active_attrition_c.xlsx contains drop-out participants from the control group
+
+- sept18_deactive_attrition_c.xlsx contains drop-out participants from the treatment group
 
 
 ## Code
 Below is the code necessary for replicating all the figures/tables in the main text of the paper and supplementary analysis.
 
-code_review_megan.R 
+- code_review_megan.R 
 
-maintext_plots.R generates all the figures in the main text (Fig 1, Fig 2 and Fig 3); the models from which it derives coefficients and standard errors are specified within the code_review_megan.R script 
+- maintext_plots.R generates all the figures in the main text (Fig 1, Fig 2 and Fig 3); the models from which it derives coefficients and standard errors are specified within the code_review_megan.R script 
 
-offline_networks_megan.R
-online_networks_megan.R
-offline_online_interaction.R
+- offline_networks_megan.R
+- online_networks_megan.R
+- offline_online_interaction.R
 
 
 

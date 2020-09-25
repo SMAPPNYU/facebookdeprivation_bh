@@ -26,12 +26,14 @@ outcome of interest. We find evidence that, counter pre-registered expectations,
 ## Code
 Below is the code necessary for replicating all the figures/tables in the main text of the paper and supplementary analysis.
 
-- code_review_megan.R 
+- code_review_megan.R - Table S1-S8
 
 - maintext_plots.R generates all the figures in the main text (Fig 1, Fig 2 and Fig 3); the models from which it derives coefficients and standard errors are specified within the code_review_megan.R script 
-
-- offline_networks_megan.R
-- online_networks_megan.R
+- heterogenous_Effects_megan.R - Fig S2 [S1 are just images]
+- offline_networks_megan.R  - TABLE S11-S18
+- offline_online_interaction_megan.R - Fig S6, Fig S5.A
+- fb_substitutes_megan.R - Fig S3, S4, S7
+- online_networks_megan.R - Tables S19-S21 + Fig S5
 - offline_online_interaction.R
 
 

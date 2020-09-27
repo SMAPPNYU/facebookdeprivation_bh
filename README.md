@@ -22,6 +22,8 @@ outcome of interest. We find evidence that, counter pre-registered expectations,
 
 - sept18_deactive_attrition_c.xlsx contains drop-out participants from the treatment group
 
+To download the data files, go to XX.
+
 
 ## Code
 Below is the code necessary for replicating all the figures/tables in the main text of the paper and supplementary analysis.

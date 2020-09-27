@@ -16,11 +16,11 @@ outcome of interest. We find evidence that, counter pre-registered expectations,
 
 ## Data
 
-- bosnia_data.csv contains the anonymized dataset used for all the analysis. Personal information about individual users has anonymized to ensure participant privacy, and the original Facebook URLs have been replaced by random numbers. 
+- `bosnia_data.csv` contains the anonymized dataset used for all the analysis. Personal information about individual users has anonymized to ensure participant privacy, and the original Facebook URLs have been replaced by random numbers. 
 
-- sept18_active_attrition_c.xlsx contains drop-out participants from the control group
+- `sept18_active_attrition_c.xlsx` contains drop-out participants from the control group
 
-- sept18_deactive_attrition_c.xlsx contains drop-out participants from the treatment group
+- `sept18_deactive_attrition_c.xlsx` contains drop-out participants from the treatment group
 
 To download the data files, go to XX.
 
@@ -28,15 +28,15 @@ To download the data files, go to XX.
 ## Code
 Below is the code necessary for replicating all the figures/tables in the main text of the paper and supplementary analysis.
 
-- code_review_megan.R - Table S1-S8
+- `code_review_megan.R` - Table S1-S8
 
-- maintext_plots.R generates all the figures in the main text (Fig 1, Fig 2 and Fig 3); the models from which it derives coefficients and standard errors are specified within the code_review_megan.R script 
-- heterogenous_Effects_megan.R - Fig S2 [S1 are just images]
-- offline_networks_megan.R  - TABLE S11-S18
-- offline_online_interaction_megan.R - Fig S6, Fig S5.A
-- fb_substitutes_megan.R - Fig S3, S4, S7
-- online_networks_megan.R - Tables S19-S21 + Fig S5
-- offline_online_interaction.R
+- `maintext_plots.R` generates all the figures in the main text (Fig 1, Fig 2 and Fig 3); the models from which it derives coefficients and standard errors are specified within the code_review_megan.R script 
+- `heterogenous_Effects_megan.R` - Fig S2 [S1 are just images]
+- `offline_networks_megan.R`  - TABLE S11-S18
+- `offline_online_interaction_megan.R` - Fig S6, Fig S5.A
+- `fb_substitutes_megan.R` - Fig S3, S4, S7
+- `online_networks_megan.R` - Tables S19-S21 + Fig S5
+- `offline_online_interaction.R`
 
 
 

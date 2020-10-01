@@ -31,7 +31,8 @@ Below is the code necessary for replicating all the figures/tables in the main t
 	* `1.4-offline-networks.R` - replicates Tables S11-S18
 	* `1.5-online_networks.R` - replicates Tables S19-S21 + Fig S5
 	* `1.6-offline-online-interaction.R` - replicates Fig S6, Fig S5.A
-        * `1.7-attrition.R`
+	* `1.7-attrition.R` - replicates X [checking w JT]
+      
 
 -  **`02_count_network_diversity.py`** - script estimating proportion of each ethnic group within online networks/friend lists of users who shared their online data with our research team. Lists are filtered to friends made prior to July 8, 2019, the week the experiment started to capture only pre-treatment friendships. To respect and ensure the privacy of our participants, we cannot publicly share the raw files with names but instead provide aggregated proportions for each user within the main dataset (these proportions - variables "bosniak_online_v1", "serb_online_v1", "croat_online_v1" and "bosniak_online_v2", "serb_online_v2", "croat_online_v2" - and are then used in the analysis of network diversity, as in the script `1.5_online_networks.R`). 
 The difference in the two versions is in the following: within the first version, names that overlap across ethnic groups are weighted appropriately (i.e., if the name is found across two ethnic groups, we assign 50-50 probability of the person belonging to either; or 33/33/33 if the name appears across three categories); within the second version, proportions are calculated effectively excluding the overlapping names. Within the main data analysis, we use both versions to check robustness. 

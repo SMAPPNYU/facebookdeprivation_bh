@@ -14,11 +14,9 @@ outcome of interest. We find evidence that, counter pre-registered expectations,
 ## Data
 
 - `bosnia_data.csv` contains the anonymized dataset used for all the analysis. Personal information about individual users has anonymized to ensure participant privacy, and the original Facebook URLs have been replaced by random numbers. 
+- `active_attrition.xlsx` - contains baseline survey results of drop-out participants from the control group; used to calculate and evaluate attrition 
+- `deactive_attrition.xlsx`- contains baseline survey results of drop-out participants from the treatment group; used to calculate and evaluate attrition  
 
-- `sept18_active_attrition_c.xlsx` - contains baseline survey results of drop-out participants from the control group; used to calculate and evaluate attrition 
-- `sept18_deactive_attrition_c.xlsx`- contains baseline survey results of drop-out participants from the treatment group; used to calculate and evaluate attrition  
- - `network_diversity_v1.csv` -- the calculated network diversity based on cross-ethnic names being downweighted 
- - `network_diversity_v2.csv` -- the calculated network diversity based on unweighted name counts
 
 To download the data files, go to XX.
 
@@ -34,7 +32,7 @@ Below is the code necessary for replicating all the figures/tables in the main t
 	* `1.5-online_networks.R` - replicates Tables S19-S21 + Fig S5
 	* `1.6-offline-online-interaction.R` - replicates Fig S6, Fig S5.A
 		
--  **`02_count_network_diversity.py`** - script estimating proportion of each ethnic group within online networks/friend lists of users who sent their online data. Lists are filtered to friends made prior to July 8, 2019, the week the experiment started to capture only pre-treatment friendships. To respect and ensure the privacy of our particpants, we cannot publicly share the raw files with names but provide aggregated proportions for each user within the maindataset (these proportions - variables "bosniak_online_v1", "serb_online_v1", "croat_online_v1" and "bosniak_online_v2", "serb_online_v2", "croat_online_v2" - and are then used in the analysis of network diversity, as in the script `1.5_online_networks_megan.R`). The difference in two versions comes from the following: within first version, names that overlap across ethnic groups as weighted appropriately (i.e., if the name is found across two ethnic groups, we assign 50-50 probability of the person belonging to either; ir 33/33/33 if the name appears across three categories); within the second version, proportions are calculated effectively taking out the overlapping names (putting them within a separete category). Within the main data analysis, we use both versions to check robustness. 
+-  **`02_count_network_diversity.py`** - script estimating proportion of each ethnic group within online networks/friend lists of users who sent their online data. Lists are filtered to friends made prior to July 8, 2019, the week the experiment started to capture only pre-treatment friendships. To respect and ensure the privacy of our participants, we cannot publicly share the raw files with names but provide aggregated proportions for each user within the main dataset (these proportions - variables "bosniak_online_v1", "serb_online_v1", "croat_online_v1" and "bosniak_online_v2", "serb_online_v2", "croat_online_v2" - and are then used in the analysis of network diversity, as in the script `1.5_online_networks_megan.R`). The difference in two versions comes from the following: within first version, names that overlap across ethnic groups as weighted appropriately (i.e., if the name is found across two ethnic groups, we assign 50-50 probability of the person belonging to either; ir 33/33/33 if the name appears across three categories); within the second version, proportions are calculated effectively taking out the overlapping names (putting them within a separete category). Within the main data analysis, we use both versions to check robustness. 
 
 
 

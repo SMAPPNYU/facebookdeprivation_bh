@@ -28,13 +28,14 @@ To download the data files, go to XX.
 Below is the code necessary for replicating all the figures/tables in the main text of the paper and supplementary analysis.
 
 - `01_analysis` - main script listing the necessary packages, uploading the dataset, creating indicators and specifying the models (users should run this script and have it be active within the global environment to run all the other scripts listed below); creates Table S1-S8
+
 		- *`1.1_maintext.R`* - generates all the figures in the main text (Fig 1, Fig 2 and Fig 3); the models from which it derives coefficients and standard errors are specified within the `01_analysis`
 		- *`1.2_fb_substitutes.R`* - Fig S3, S4, S7
 		- *`1.3_heterogenous_effects.R`* - Fig S2 [S1 are just images]
 		- *`1.4_offline_networks.R`*  - TABLE S11-S18
 		- *`1.5_online_networks.R`* - Tables S19-S21 + Fig S5
 		- *`1.6_offline_online_interaction.R`* - Fig S6, Fig S5.A
-
+    
 - 02_count_network_diversity.py - script estimating proportion of each ethnic group within online networks/friend lists of users who sent their online data; to respect and ensure the privacy of our particpants, we cannot publicly share the raw files with names but provide aggregated proportions for each user within the maindataset (these proportions are then used in the analysis of network diversity, as in the script `1.5_online_networks_megan.R`)
 
 

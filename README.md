@@ -26,11 +26,11 @@ Below is the code necessary for replicating all the figures/tables in the main t
 
 - **`01_analysis.R/`** - main script listing the necessary packages, uploading the dataset, creating indicators and specifying the models (users should run this script and have it be active within the global environment to run all the other scripts listed below); also contains code for replicating Table S1-S8
 	* `1.1-maintext.R` - generates all the figures in the main text (Fig 1, Fig 2 and Fig 3); the models from which it derives coefficients and standard errors are specified within the above-mentioned 01_analysis
-	* `1.2-fb-substitutes.R` - replicates Fig S3, S4, S7
-	* `1.3-heterogenous-effects.R` - replicates Fig S2
+	* `1.2-heterogenous-effects.R` - replicates Fig S2
+	* `1.3-fb-substitutes.R` - replicates Fig S3, S4, S7
 	* `1.4-offline-networks.R` - replicates Tables S11-S18
 	* `1.5-online_networks.R` - replicates Tables S19-S21 + Fig S5
-	* `1.6-offline-online-interaction.R` - replicates Fig S6, Fig S5.A
+	* `1.6-offline-online-interaction.R` - replicates Fig S5.A, Fig 6
 	* `1.7-attrition.R` - replicates X [checking w JT]
       
 

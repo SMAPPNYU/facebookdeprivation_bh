@@ -1,7 +1,7 @@
 Replication material: _Growing Closer or Further Apart? Exposure to Social Media in Post-Conflict Settings_
 --------------
 
-This github repository contains the replication materials for the paper "Growing Closer or Further Apart? Exposure to Social Media in Post-Conflict Settings," forthcoming in XX, authored by Nejla Asimovic, Jonathan Nagler, Richard Bonneau, and Joshua Tucker, all members of the Center for Social Media and Politics [CSMAP] at NYU.
+This repository contains the replication material for the paper "Growing Closer or Further Apart? Exposure to Social Media in Post-Conflict Settings," forthcoming in XX, authored by Nejla Asimovic, Jonathan Nagler, Richard Bonneau, and Joshua Tucker, all members of the Center for Social Media and Politics [CSMaP] at NYU.
 
 
 > __Abstract:__
@@ -13,9 +13,9 @@ outcome of interest. We find evidence that, counter pre-registered expectations,
 
 ## Data
 
-- `bosnia_data.csv` contains the anonymized dataset used for all the analysis. Personal information about individual users has anonymized to ensure participant privacy, and the original Facebook URLs have been replaced by random numbers. 
-- `active_attrition.xlsx` - contains baseline survey results of drop-out participants from the control group; used to calculate and evaluate attrition 
-- `deactive_attrition.xlsx`- contains baseline survey results of drop-out participants from the treatment group; used to calculate and evaluate attrition  
+- `bosnia_data.csv` contains the anonymized dataset used in the analysis (necessary for running all the 01_ scripts below). Personal information about individual users has been anonymized to ensure participant privacy, and the original Facebook URLs have been replaced by random numbers. 
+- `active_attrition.xlsx` contains baseline survey results of drop-out participants from the control group; used to calculate and evaluate attrition. 
+- `deactive_attrition.xlsx` contains baseline survey results of drop-out participants from the treatment group; used to calculate and evaluate attrition.  
 
 
 To download the data files, go to XX.
@@ -24,15 +24,17 @@ To download the data files, go to XX.
 ## Code
 Below is the code necessary for replicating all the figures/tables in the main text of the paper and supplementary analysis.
 
-- **`01_analysis.R/`** - main script listing the necessary packages, uploading the dataset, creating indicators and specifying the models (users should run this script and have it be active within the global environment to run all the other scripts listed below); creates Table S1-S8
-	* `1.1-maintext.R` - generates all the figures in the main text (Fig 1, Fig 2 and Fig 3); the models from which it derives coefficients and standard errors are specified within the 01_analysis
+- **`01_analysis.R/`** - main script listing the necessary packages, uploading the dataset, creating indicators and specifying the models (users should run this script and have it be active within the global environment to run all the other scripts listed below); also contains code for replicating Table S1-S8
+	* `1.1-maintext.R` - generates all the figures in the main text (Fig 1, Fig 2 and Fig 3); the models from which it derives coefficients and standard errors are specified within the above-mentioned 01_analysis
 	* `1.2-fb-substitutes.R` - replicates Fig S3, S4, S7
 	* `1.3-heterogenous-effects.R` - replicates Fig S2
 	* `1.4-offline-networks.R` - replicates Tables S11-S18
 	* `1.5-online_networks.R` - replicates Tables S19-S21 + Fig S5
 	* `1.6-offline-online-interaction.R` - replicates Fig S6, Fig S5.A
-		
--  **`02_count_network_diversity.py`** - script estimating proportion of each ethnic group within online networks/friend lists of users who sent their online data. Lists are filtered to friends made prior to July 8, 2019, the week the experiment started to capture only pre-treatment friendships. To respect and ensure the privacy of our participants, we cannot publicly share the raw files with names but provide aggregated proportions for each user within the main dataset (these proportions - variables "bosniak_online_v1", "serb_online_v1", "croat_online_v1" and "bosniak_online_v2", "serb_online_v2", "croat_online_v2" - and are then used in the analysis of network diversity, as in the script `1.5_online_networks_megan.R`). The difference in two versions comes from the following: within first version, names that overlap across ethnic groups as weighted appropriately (i.e., if the name is found across two ethnic groups, we assign 50-50 probability of the person belonging to either; ir 33/33/33 if the name appears across three categories); within the second version, proportions are calculated effectively taking out the overlapping names (putting them within a separete category). Within the main data analysis, we use both versions to check robustness. 
+        * `1.7-attrition.R`
+
+-  **`02_count_network_diversity.py`** - script estimating proportion of each ethnic group within online networks/friend lists of users who shared their online data with our research team. Lists are filtered to friends made prior to July 8, 2019, the week the experiment started to capture only pre-treatment friendships. To respect and ensure the privacy of our participants, we cannot publicly share the raw files with names but instead provide aggregated proportions for each user within the main dataset (these proportions - variables "bosniak_online_v1", "serb_online_v1", "croat_online_v1" and "bosniak_online_v2", "serb_online_v2", "croat_online_v2" - and are then used in the analysis of network diversity, as in the script `1.5_online_networks.R`). 
+The difference in the two versions is in the following: within the first version, names that overlap across ethnic groups are weighted appropriately (i.e., if the name is found across two ethnic groups, we assign 50-50 probability of the person belonging to either; or 33/33/33 if the name appears across three categories); within the second version, proportions are calculated effectively excluding the overlapping names. Within the main data analysis, we use both versions to check robustness. 
 
 
 

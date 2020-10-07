@@ -8,7 +8,7 @@ combined$fam <- str_count(combined$activ, "4")
 combined$notech <- str_count(combined$activ, "5")
 combined$online_news <- str_count(combined$activ, "6")
 
-covIn <- as.formula("~freq_usage+as.factor(ethn_t)+gender+age+educ+employ1+time_usage+imp_ethn")
+covIn <- as.formula("~freq_usage+as.factor(ethn_t)+gender+age+educ+employ1+imp_ethn+imp_cntry")
 inst_fs<-lm_lin(inst~treatment, covariates=covIn, data=combined)
 inst_fs_coef<-inst_fs$coefficients[2]/sd(combined[combined$treatment=="0",]$inst)
 inst_fs_se<-inst_fs$std.error[2]/sd(combined[combined$treatment=="0",]$inst)
@@ -37,15 +37,12 @@ online_news_fs_se<-online_news_fs$std.error[2]/sd(combined[combined$treatment=="
 # -------- *Plot S3* ------------
 
 dev.off() #
-pdf("figureS3.pdf")
+#pdf("figureS3.pdf")
 layout(matrix(c(2,1),1,2), #in order to add variable categories and braces to left side of plot, 
        widths = c(1.5, 5))#
 par(mar=c(10,8,3,1)) 
 coef.vec<- c(inst_fs_coef,oth_online_fs_coef,tv_fs_coef,fam_fs_coef,notech_fs_coef,online_news_fs_coef)
 se.vec <- c(inst_fs_se,oth_online_fs_se,tv_fs_se,fam_fs_se,notech_fs_se,online_news_fs_se)
-#coef.vec<- c(0.2445494, 0.1160885,-0.01693, 0.2140149, 0.1840368, 0.2040527)
-#se.vec <- c( 0.1340406,0.1114959, 0.1061665, 0.108984, 0.1112958,0.1131635)
-
 var.names <- c("Instagram","Other Online Activities","TV","Family & Friends","No Tech","Online News")
 results_df <- data.frame(term=var.names, estimate=coef.vec,
                          std.error=se.vec)
@@ -68,7 +65,7 @@ axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex
 abline(h = 0, v=0, col="gray",lty=2,lwd=1.4)
 abline(h = 9.5, v=0, col="gray",lty=2,lwd=1.4)
 segments(coef.vec-qnorm(.975)*se.vec, y.axis, coef.vec+qnorm(.975)*se.vec, y.axis,lwd = 1.5, col = c("blue"))
-dev.off()
+#dev.off()
 
 # --------------------------------------------------
 #  Facebook substitutes - online vs. offline: Fig S4
@@ -83,7 +80,7 @@ combined$notech <- str_count(combined$activ, "5")
 combined$online_news <- str_count(combined$activ, "6")
 pal <- colorRampPalette(colors = c("lightblue", "blue"))(7)
 
-covIn <- as.formula("~freq_usage")
+covIn <- as.formula("~freq_usage+as.factor(ethn_t)+gender+age+educ+employ1+imp_ethn+imp_cntry")
 
 inst_fs_online<-lm_lin(inst~treatment, covariates=covIn, data=combined[!is.na(combined$bosniak.3),])
 inst_fs_online_coef<-inst_fs_online$coefficients[2]/sd(combined[combined$treatment=="0" & !is.na(combined$bosniak.3),]$inst)
@@ -113,9 +110,9 @@ online_news_fs_online_se<-online_news_fs_online$std.error[2]/sd(combined[combine
 # -------- *Plot S4 [top panel]* ------------
 
 dev.off() #
-pdf(file = "/Users/nejlaasimovic/Desktop/fig4_top.pdf",   # The directory you want to save the file in
-    width = 5.5, # The width of the plot in inches
-    height = 3.8) 
+#pdf(file = "/Users/nejlaasimovic/Desktop/fig4_top.pdf",   # The directory you want to save the file in
+  #  width = 5.5, # The width of the plot in inches
+   # height = 3.8) 
 
 layout(matrix(c(2,1),1,2), #in order to add variable categories and braces to left side of plot, 
        widths = c(1.5, 5))#
@@ -152,7 +149,7 @@ axis(1, at = seq(-1,1,by=1), labels =c(-1,0,1) , tick = T,#draw x-axis and label
 axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 0.9) #draw y-axis with tick marks, make labels perpendicular to axis and closer to axis
 abline(h = 0, v=0, col="gray",lty=2,lwd=1.4)
 abline(h = 9.5, v=0, col="gray",lty=2,lwd=1.4)
-dev.off()
+# dev.off()
 
 
 
@@ -182,10 +179,12 @@ online_news_fs_online2<-lm_lin(online_news~treatment, covariates=covIn, data=com
 online_news_fs_online_coef2<-online_news_fs_online2$coefficients[2]/sd(combined[combined$treatment=="0" & is.na(combined$bosniak.3),]$online_news)
 online_news_fs_online_se2<-online_news_fs_online2$std.error[2]/sd(combined[combined$treatment=="0"& is.na(combined$bosniak.3),]$online_news)
 
+
+# -------- *Plot S4 [bottom panel]* ------------
 dev.off() #
-pdf(file = "/Users/nejlaasimovic/Desktop/fig4_bottom.pdf",   # The directory you want to save the file in
-    width = 5.5, # The width of the plot in inches
-    height = 3.8) 
+# pdf(file = "/Users/nejlaasimovic/Desktop/fig4_bottom.pdf",   # The directory you want to save the file in
+  #  width = 5.5, # The width of the plot in inches
+  #  height = 3.8) 
 layout(matrix(c(2,1),1,2), #in order to add variable categories and braces to left side of plot, 
        widths = c(1.5, 5))#
 par(mgp=c(2.5,1,0)) 
@@ -221,7 +220,7 @@ axis(1, at = seq(-1,1,by=1), labels =c(-1,0,1) , tick = T,#draw x-axis and label
 axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 0.9) #draw y-axis with tick marks, make labels perpendicular to axis and closer to axis
 abline(h = 0, v=0, col="gray",lty=2,lwd=1.7)
 abline(h = 9.5, v=0, col="gray",lty=2,lwd=1.7)
-dev.off()
+# dev.off()
 
 
 

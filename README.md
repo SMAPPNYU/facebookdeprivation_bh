@@ -38,7 +38,7 @@ Below is the code necessary for replicating all the figures/tables in the main t
 	* `1.5-offline-online-interaction.R` - replicates Fig S5.A, Fig 6
 	* `1.6-attrition.R` - replicates X [checking w JT]
       
-- **`02_maintext.R/`** generates all the figures in the main text (Fig 1, Fig 2 and Fig 3); the models from which it derives coefficients and standard errors are specified within the above-mentioned analysis (particulalry `01_analysis.R` and `1.4-offline-networks.R` need to be within the global environment)
+- **`02_maintext.R/`** generates all the figures in the main text (Fig 1, Fig 2 and Fig 3); the models from which it derives coefficients and standard errors are specified within the above-mentioned analysis (particularly `01_analysis.R` and `1.4-offline-networks.R` need to be within the global environment)
 	
 	
 -  **`03_count_network_diversity.py`** - script estimating proportion of each ethnic group within online networks/friend lists of users who shared their online data with our research team. Lists are filtered to friends made prior to July 8, 2019, the week the experiment started to capture only pre-treatment friendships. To respect and ensure the privacy of our participants, we cannot publicly share the raw files with names but instead provide aggregated proportions for each user within the main dataset (these propBitortions - variables "bosniak_online_v1", "serb_online_v1", "croat_online_v1" and "bosniak_online_v2", "serb_online_v2", "croat_online_v2" - and are then used in the analysis of network diversity, as in the script `1.4_online_networks.R`). 

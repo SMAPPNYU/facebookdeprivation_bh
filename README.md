@@ -1,7 +1,7 @@
 Replication material: _Growing Closer or Further Apart? Exposure to Social Media in Post-Conflict Settings_
 --------------
 
-This repository contains the replication material for the paper "Growing Closer or Further Apart? Exposure to Social Media in Post-Conflict Settings," forthcoming in XX, authored by Nejla Asimovic, Jonathan Nagler, Richard Bonneau, and Joshua Tucker, all members of the Center for Social Media and Politics [CSMaP] at NYU.
+This repository contains the replication material for the paper "Growing Closer or Further Apart? Exposure to Social Media in Post-Conflict Settings," "forthcoming" in XX, authored by Nejla Asimovic, Jonathan Nagler, Richard Bonneau, and Joshua Tucker, all members of the Center for Social Media and Politics [CSMaP] at NYU.
 
 
 > __Abstract:__

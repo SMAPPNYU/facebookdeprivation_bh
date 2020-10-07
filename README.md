@@ -19,7 +19,7 @@ To run the code, initiate: `git clone https://github.com/SMAPPNYU/facebookdepriv
 
 ## Data
 
-- `bosnia_data.csv` contains the anonymized dataset used in the analysis (necessary for running all the 01_ scripts below). Personal information about individual users has been anonymized to ensure participant privacy, and the original Facebook URLs have been replaced by random numbers. 
+- `bosnia_data_anonym.csv` contains the anonymized dataset used in the analysis (necessary for running all the 01_ scripts below). Personal information about individual users has been anonymized to ensure participant privacy, and the original Facebook URLs have been replaced by random numbers. 
 - `active_attrition.csv` contains baseline survey results of drop-out participants from the control group; used to calculate and evaluate attrition. 
 - `deactive_attrition.csv` contains baseline survey results of drop-out participants from the treatment group; used to calculate and evaluate attrition.  
 

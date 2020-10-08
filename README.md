@@ -34,7 +34,7 @@ Below is the code necessary for replicating all the figures/tables in the main t
 	* `1.1-heterogenous-effects.R` - replicates Fig S2
 	* `1.2-fb-substitutes.R` - replicates Fig S3 and S4
 	* `1.3-offline-networks.R` - replicates Tables S9-S16
-	* `1.4-online_networks.R` - replicates Tables S17-S20 + Fig S5
+	* `1.4-online-networks.R` - replicates Tables S17-S20 + Fig S5
 	* `1.5-offline-online-interaction.R` - replicates Fig S5.A, Fig 6
 	* `1.6-attrition.R` - replicates X [checking w JT]
       

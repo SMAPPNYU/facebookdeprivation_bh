@@ -102,7 +102,35 @@ prcomp<- prcomp(wellbeing_df)
 print(prcomp, digits=3) # Checking the loadings
 
 # Observe relatively uniform loadings across variables, proceed by creating sum score index
-
+                       
+# NOTE FOR JIM [one possibility is to create the analysis function that will apply to all variables (below for Model 3, full covariate spec), but it seemed to me that going model by model
+                       # for each separate outcome is easier for readers to follow; if you think it's too mundane/repetitive, I could use a function through which
+                       # all outcomes could be run, as below for c_news]
+                       
+ # VERSION separate function for model 3                                  
+ITT_res <- function(vUp="",
+                    label_name="",
+                    dataIn=NULL){
+  formUp <- as.formula(paste0(vUp,
+                              "~",
+                              "treatment"))
+  covIn <- as.formula("~freq_usage+as.factor(ethn_t)+gender+age+educ+employ1+imp_ethn+imp_cntry")
+  Model3 <- lm_lin(formUp,
+                      covariates=covIn,
+                      data=dataIn)
+  fitOut <- tidy(Model3)
+  results <- fitOut[fitOut[,"term"]=="treatment",]
+  results$controlmean <- mean(dataIn[dataIn$treatment==0,vUp], na.rm=TRUE)
+  results$controlsd <- sd(dataIn[dataIn$treatment==0,vUp], na.rm=TRUE)
+  results$standardized_est<-fitOut$estimate[2]/  results$controlsd 
+  results$standardized_sd<-fitOut$std.error[2]/  results$controlsd 
+  results$N <- Model3$N
+  results$label <- label_name
+  return(results)
+}                   
+ITT_res("c_news","label",combined) # results$standardized_est is the coef of interest
+                       
+# VERSION Model by Model                      
 # Primary index - sum of z-scores
 for (i in 1:nrow(combined)){
   combined$swb[i]<- scale(combined$satisf)[i]+scale(combined$joy)[i]+scale(combined$fulf)[i]+scale(combined$depression)[i] +scale(combined$loneliness)[i] + scale(combined$nerv)[i] 
@@ -117,14 +145,12 @@ swb_se<-coeftest(swb0, vcov = vcovHC(swb0, type = "HC1"))[2,2]/sd(combined[combi
 # model 2: includes freq_usage
 covIn <- as.formula("~freq_usage")
 swb1<-lm_lin(swb~treatment, covariates=covIn, data=combined)
-summary(swb1)
 swb_coef1<-swb1$coefficients[2] /sd(combined[combined$treatment=="0",]$swb)
 swb_se1<-swb1$std.error[2]/ sd(combined[combined$treatment=="0",]$swb)
 
 # model 3: full covariates
 covIn <- as.formula("~freq_usage+as.factor(ethn_t)+gender+age+educ+employ1+imp_ethn+imp_cntry")
 swb2<-lm_lin(swb~treatment, covariates=covIn, data=combined)
-summary(swb2)
 swb_coef2<-swb2$coefficients[2] /sd(combined[combined$treatment=="0",]$swb)
 swb_se2<-swb2$std.error[2]/ sd(combined[combined$treatment=="0",]$swb)
 
@@ -268,7 +294,7 @@ isolation2<-lm_lin(isol~treatment, covariates=covIn, data=combined)
 isol_coef2<-isolation2$coefficients[2]/sd(combined[combined$treatment=="0",]$isol)
 isol_se2<-isolation2$std.error[2]/ sd(combined[combined$treatment=="0",]$isol)
 
-# Referenced in the paper 
+# ------------- Referenced in the main paper 
 # Excluding the outliers
 outlier.values<-boxplot.stats(combined$swb)$out  
 no_swb_outliers<-combined[!combined$swb %in% outlier.values,]
@@ -280,7 +306,7 @@ summary(swb2_nooutliers)
 swb2_nooutliers_coef2<-swb2_nooutliers$coefficients[2] /sd(no_swb_outliers[no_swb_outliers$treatment=="0",]$swb)
 swb2_nooutliers_se2<-swb2_nooutliers$std.error[2]/ sd(no_swb_outliers[no_swb_outliers$treatment=="0",]$swb)
 
-# One directional hypothesis
+# Results of directional hypothesis in the direction of the hypothesis
 t.test(no_swb_outliers[no_swb_outliers$treatment=="0",]$swb, no_swb_outliers[no_swb_outliers$treatment=="1",]$swb, alternative="less")
 
 

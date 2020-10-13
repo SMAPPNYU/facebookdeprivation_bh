@@ -57,32 +57,32 @@ onl_off_sh_se2<-m$std.error[2]/sd(combined[which(combined$shannon_difference == 
 # ------- Left Panel
 par(mfrow=c(1,2)) 
 par(mar=c(9, 7, 5, 1))
-# par(mar=c(6, 3, 1, 5)) #20 je desna strana # 2 s lijeve gura, zadnja desno, 3 skuplja
+# par(mar=c(6, 3, 1, 5)) 
 coef.vec<-c(onl_off_sh_coef2,onl_off_ms_coef2,onl_off_ef_coef2)
 se.vec<-c(onl_off_sh_se2,onl_off_ms_se2,onl_off_ef_se2)
-plot(coef.vec, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = c(19,17,12),cex = 1.2,#plot coefficients as points, turning off axes and labels.
+plot(coef.vec, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = c(19,17,12),cex = 1.2,
      xlim = c(-1.5,1.5), xaxs = "r", main = "Offline network more \n heterogenous", col=c("black","blue","red"), cex.lab=0.9, cex.main=0.9)
 segments(coef.vec-qnorm(.975)*se.vec, y.axis, coef.vec+qnorm(.975)*se.vec, y.axis, lwd = 1.6, col = c("black","blue","red"))
 abline(h = 0, v=0, col="grey",lty=2,lwd=2.5)
 var.names <- c("Out-Group \n Index (SE)","Out-Group \n Index (MS)","Out-Group \n Index (EF)")
 y.axis <- c(length(var.names):1) #par(mar=c(2, 13, 0, 0))
-axis(1, at = seq(-1.5,1.5,by=1.5), labels =c(-1,0,1) , tick = T,#draw x-axis and labels with tick marks
+axis(1, at = seq(-1.5,1.5,by=1.5), labels =c(-1,0,1) , tick = T,
      cex.axis = 1, mgp = c(4,2,1))
-axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 1)#draw y-axis with tick marks, make labels perpendicular to axis and closer to axis
+axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 1)
 
 # ------  Right Panel
 coef.vec.2<-c(onl_off_sh_coef,onl_off_ms_coef,onl_off_ef_coef)
 se.vec.2<-c(onl_off_sh_se,onl_off_ms_se,onl_off_ef_se)
 adjust = 0.26
-plot(coef.vec.2, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = c(19,17,12),cex = 1.2,#plot coefficients as points, turning off axes and labels.
+plot(coef.vec.2, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = c(19,17,12),cex = 1.2,
      xlim = c(-1.5,1.5), xaxs = "r", main = "Online network more \n heterogenous",col=c("black","blue","red"),cex.lab=0.9, cex.main=0.9)
 segments(coef.vec.2-qnorm(.975)*se.vec.2, y.axis, coef.vec.2+qnorm(.975)*se.vec.2, y.axis, lwd = 1.6, col = c("black","blue","red"))
 abline(h = 0, v=0, col="grey",lty=2,lwd=2.5)
 var.names <- c("Out-Group \n Index (SE)","Out-Group \n Index (MS)","Out-Group \n Index (EF)")
-y.axis <- c(length(var.names):1) #par(mar=c(2, 13, 0, 0))
-axis(1, at =  seq(-1.5,1.5,by=1.5), labels =c(-1,0,1) , tick = T,#draw x-axis and labels with tick marks
+y.axis <- c(length(var.names):1) 
+axis(1, at =  seq(-1.5,1.5,by=1.5), labels =c(-1,0,1) , tick = T,
      cex.axis = 1, mgp = c(4,2,1))
-axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 1) #draw y-axis with tick marks, make labels perpendicular to axis and closer to axis
+axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 1) 
 legend(x=-8, y=-0.01,
        legend = c("Shannon Entropy", "Majority Group Share","Ethnic Fractionalization"), 
        col=c("black","blue","red"), xpd=NA,
@@ -150,29 +150,29 @@ par(mfrow=c(1,2))
 par(mar=c(9, 7, 5, 1))
 coef.vec<-c(onl_off_sh_coef2,onl_off_ms_coef2,onl_off_ef_coef2)
 se.vec<-c(onl_off_sh_se2,onl_off_ms_se2,onl_off_ef_se2)
-plot(coef.vec, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = c(19,17,12),cex = 1.2,#plot coefficients as points, turning off axes and labels.
+plot(coef.vec, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = c(19,17,12),cex = 1.2,
      xlim = c(-1.5,1.5), xaxs = "r", main = "Offline network more \n heterogenous", col=c("black","blue","red"), cex.lab=0.9, cex.main=0.9)
 segments(coef.vec-qnorm(.975)*se.vec, y.axis, coef.vec+qnorm(.975)*se.vec, y.axis, lwd = 1.6, col = c("black","blue","red"))
 abline(h = 0, v=0, col="grey",lty=2,lwd=2.5)
 var.names <- c("Out-Group \n Index (SE)","Out-Group \n Index (MS)","Out-Group \n Index (EF)")
-y.axis <- c(length(var.names):1) #par(mar=c(2, 13, 0, 0))
-axis(1, at = seq(-1.5,1.5,by=1.5), labels =c(-1,0,1) , tick = T,#draw x-axis and labels with tick marks
+y.axis <- c(length(var.names):1) 
+axis(1, at = seq(-1.5,1.5,by=1.5), labels =c(-1,0,1) , tick = T,
      cex.axis = 1, mgp = c(4,2,1))
-axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 1)#draw y-axis with tick marks, make labels perpendicular to axis and closer to axis
+axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 1)
 
 # Right Panel
 coef.vec.2<-c(onl_off_sh_coef,onl_off_ms_coef,onl_off_ef_coef)
 se.vec.2<-c(onl_off_sh_se,onl_off_ms_se,onl_off_ef_se)
 adjust = 0.26
-plot(coef.vec.2, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = c(19,17,12),cex = 1.2,#plot coefficients as points, turning off axes and labels.
+plot(coef.vec.2, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = c(19,17,12),cex = 1.2,
      xlim = c(-1.5,1.5), xaxs = "r", main = "Online network more \n heterogenous",col=c("black","blue","red"),cex.lab=0.9, cex.main=0.9)
 segments(coef.vec.2-qnorm(.975)*se.vec.2, y.axis, coef.vec.2+qnorm(.975)*se.vec.2, y.axis, lwd = 1.6, col = c("black","blue","red"))
 abline(h = 0, v=0, col="grey",lty=2,lwd=2.5)
 var.names <- c("Out-Group \n Index (SE)","Out-Group \n Index (MS)","Out-Group \n Index (EF)")
-y.axis <- c(length(var.names):1) #par(mar=c(2, 13, 0, 0))
-axis(1, at =  seq(-1.5,1.5,by=1.5), labels =c(-1,0,1) , tick = T,#draw x-axis and labels with tick marks
+y.axis <- c(length(var.names):1) 
+axis(1, at =  seq(-1.5,1.5,by=1.5), labels =c(-1,0,1) , tick = T,
      cex.axis = 1, mgp = c(4,2,1))
-axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 1) #draw y-axis with tick marks, make labels perpendicular to axis and closer to axis
+axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 1) 
 legend(x=-8, y=-0.01,
        legend = c("Shannon Entropy", "Majority Group Share","Ethnic Fractionalization"), 
        col=c("black","blue","red"), xpd=NA,

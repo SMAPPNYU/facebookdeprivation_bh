@@ -6,38 +6,38 @@
 
 # gender = 1
 covIn <- as.formula("~freq_usage")
-outgroup_he_gender<-lm_lin(outgroup_princomp~treatment, covariates=covIn, data=combined[combined$gender==1 ,])
-outgroup_he_gender_coef<-outgroup_he_gender$coefficients[2]/sd(combined[combined[combined$gender==1 ,]$treatment=="0",]$outgroup_princomp)
-outgroup_he_gender_se<-outgroup_he_gender$std.error[2]/ sd(combined[combined[combined$gender==1 ,]$treatment=="0",]$outgroup_princomp)
+outgroup_he_gender<-lm_lin(outgroup_princomp~treatment, covariates=covIn, data=combined[combined$gender==1,])
+outgroup_he_gender_coef<-outgroup_he_gender$coefficients[2]/sd(combined[combined[combined$gender==1,]$treatment=="0",]$outgroup_princomp)
+outgroup_he_gender_se<-outgroup_he_gender$std.error[2]/ sd(combined[combined[combined$gender==1,]$treatment=="0",]$outgroup_princomp)
 
 covIn <- as.formula("~freq_usage")
-swb_he_gender<-lm_lin(swb~treatment, covariates=covIn, data=combined[combined$gender==1 ,])
-swb_he_gender_coef<-swb_he_gender$coefficients[2]/sd(combined[combined[combined$gender==1 ,]$treatment=="0",]$swb)
-swb_he_gender_se<-swb_he_gender$std.error[2]/ sd(combined[combined[combined$gender==1 ,]$treatment=="0",]$swb)
+swb_he_gender<-lm_lin(swb~treatment, covariates=covIn, data=combined[combined$gender==1,])
+swb_he_gender_coef<-swb_he_gender$coefficients[2]/sd(combined[combined[combined$gender==1,]$treatment=="0",]$swb)
+swb_he_gender_se<-swb_he_gender$std.error[2]/ sd(combined[combined[combined$gender==1,]$treatment=="0",]$swb)
 
 covIn <- as.formula("~freq_usage")
-cnews_he_gender<-lm_lin(c_news~treatment, covariates=covIn, data=combined[combined$gender==1 ,])
-cnews_he_gender_coef<-cnews_he_gender$coefficients[2]/sd(combined[combined[combined$gender==1 ,]$treatment=="0",]$c_news)
-cnews_he_gender_se<-cnews_he_gender$std.error[2]/ sd(combined[combined[combined$gender==1 ,]$treatment=="0",]$c_news)
+cnews_he_gender<-lm_lin(c_news~treatment, covariates=covIn, data=combined[combined$gender==1,])
+cnews_he_gender_coef<-cnews_he_gender$coefficients[2]/sd(combined[combined[combined$gender==1,]$treatment=="0",]$c_news)
+cnews_he_gender_se<-cnews_he_gender$std.error[2]/ sd(combined[combined[combined$gender==1,]$treatment=="0",]$c_news)
 
 # gender = 2
 covIn <- as.formula("~freq_usage")
-outgroup_he_gender2<-lm_lin(outgroup_princomp~treatment, covariates=covIn, data=combined[combined$gender==2 ,])
-outgroup_he_gender_coef2<-outgroup_he_gender2$coefficients[2]/sd(combined[combined[combined$gender==2 ,]$treatment=="0",]$outgroup_princomp)
-outgroup_he_gender_se2<-outgroup_he_gender2$std.error[2]/ sd(combined[combined[combined$gender==2 ,]$treatment=="0",]$outgroup_princomp)
+outgroup_he_gender2<-lm_lin(outgroup_princomp~treatment, covariates=covIn, data=combined[combined$gender==2,])
+outgroup_he_gender_coef2<-outgroup_he_gender2$coefficients[2]/sd(combined[combined[combined$gender==2,]$treatment=="0",]$outgroup_princomp)
+outgroup_he_gender_se2<-outgroup_he_gender2$std.error[2]/ sd(combined[combined[combined$gender==2,]$treatment=="0",]$outgroup_princomp)
 
 covIn <- as.formula("~freq_usage")
-swb_he_gender2<-lm_lin(swb~treatment, covariates=covIn, data=combined[combined$gender==2 ,])
-swb_he_gender_coef2<-swb_he_gender2$coefficients[2]/sd(combined[combined[combined$gender==2 ,]$treatment=="0",]$swb)
-swb_he_gender_se2<-swb_he_gender2$std.error[2]/ sd(combined[combined[combined$gender==2 ,]$treatment=="0",]$swb)
+swb_he_gender2<-lm_lin(swb~treatment, covariates=covIn, data=combined[combined$gender==2,])
+swb_he_gender_coef2<-swb_he_gender2$coefficients[2]/sd(combined[combined[combined$gender==2,]$treatment=="0",]$swb)
+swb_he_gender_se2<-swb_he_gender2$std.error[2]/ sd(combined[combined[combined$gender==2,]$treatment=="0",]$swb)
 
 covIn <- as.formula("~freq_usage")
-cnews_he_gender2<-lm_lin(c_news~treatment, covariates=covIn, data=combined[combined$gender==2 ,])
-cnews_he_gender_coef2<-cnews_he_gender2$coefficients[2]/sd(combined[combined[combined$gender==2 ,]$treatment=="0",]$c_news)
-cnews_he_gender_se2<-cnews_he_gender2$std.error[2]/ sd(combined[combined[combined$gender==2 ,]$treatment=="0",]$c_news)
+cnews_he_gender2<-lm_lin(c_news~treatment, covariates=covIn, data=combined[combined$gender==2,])
+cnews_he_gender_coef2<-cnews_he_gender2$coefficients[2]/sd(combined[combined[combined$gender==2,]$treatment=="0",]$c_news)
+cnews_he_gender_se2<-cnews_he_gender2$std.error[2]/ sd(combined[combined[combined$gender==2,]$treatment=="0",]$c_news)
 
 # PLOT: HETEROGENOUS EFFECT [GENDER]
-pdf(file = "/Users/nejlaasimovic/Desktop/figS2_gender.pdf",   # The directory you want to save the file in
+pdpdf(file = "/Users/nejlaasimovic/Desktop/figS2_gender.pdf",   # The directory you want to save the file in
     width = 5.5, # The width of the plot in inches
     height = 3.8) 
 
@@ -51,17 +51,15 @@ se.vec.2<-c(outgroup_he_gender_se2, swb_he_gender_se2, cnews_he_gender_se2)
 var.names <- c("Out-Group Attitudes","Subjective Well-Being", "News Knowledge")
 y.axis <- c(length(var.names):1) 
 par(mgp=c(2.5,1,0))   # x axis closer
-plot(coef.vec, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = 19,cex = 0.8,#plot coefficients as points, turning off axes and labels.
+plot(coef.vec, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = 19,cex = 0.8,
      xlim = c(-1,1), xaxs = "r", main = "Gender", col="red",cex.lab=0.8)
 segments(coef.vec-qnorm(.975)*se.vec, y.axis, coef.vec+qnorm(.975)*se.vec, y.axis, lwd = 1.6, col = c("red"))
-axis(1, at = seq(-1,1,by=1), labels =c(-1,0,1) , tick = T,#draw x-axis and labels with tick marks
-     cex.axis = 1, mgp = c(4,1.5,1))#reduce label size, moves labels closer to tick marks; zadnji u mgp spusta x liniju nize
-axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 1) #draw y-axis with tick marks, make labels perpendicular to axis and closer to axis
+axis(1, at = seq(-1,1,by=1), labels =c(-1,0,1) , tick = T,
+     cex.axis = 1, mgp = c(4,1.5,1))
+axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 1) 
 abline(h = 0, v=0, col="gray",lty=2,lwd=2.5)
-# draw dotted line through 0 
-#box(bty = "l") #place box around plot
-segments(coef.vec.2-qnorm(.975)*se.vec.2, y.axis-adjust, coef.vec.2+qnorm(.975)*se.vec.2, y.axis-adjust,lwd = 1.5, col = c("blue"))#draw lines connecting 95% confidence intervals
-points(coef.vec.2, y.axis-adjust,pch = 17, cex = 1, col = c("blue")) #add point estimates for 2nd model; pch = 21 uses for overlay points, and "white" for white color
+segments(coef.vec.2-qnorm(.975)*se.vec.2, y.axis-adjust, coef.vec.2+qnorm(.975)*se.vec.2, y.axis-adjust,lwd = 1.5, col = c("blue"))
+points(coef.vec.2, y.axis-adjust,pch = 17, cex = 1, col = c("blue")) 
 legend("bottom", 
        legend = c("Male", "Female"), 
        col = c("red", "blue"), xpd=TRUE,
@@ -127,18 +125,17 @@ var.names <- c("Out-Group Attitudes","Subjective Well-Being", "News Knowledge")
 y.axis <- c(length(var.names):1) 
 adjust = 0.06
 par(mgp=c(2.5,1,0))   # x axis closer
-plot(coef.vec, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = 19,cex = 0.8,#plot coefficients as points, turning off axes and labels.
+plot(coef.vec, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = 19,cex = 0.8,
      xlim = c(-1,1), xaxs = "r", main = "Interest in Politics", col="red",cex.lab=0.8)
 par(mar=c(5,4,4,2)+0.1)
 segments(coef.vec-qnorm(.975)*se.vec, y.axis, coef.vec+qnorm(.975)*se.vec, y.axis, lwd = 1.6, col = c("red"))
-axis(1, at = seq(-1,1,by=1), labels =c(-1,0,1) , tick = T,#draw x-axis and labels with tick marks
-     cex.axis = 1, mgp = c(4,1.5,1))#reduce label size, moves labels closer to tick marks; zadnji u mgp spusta x liniju nize
-axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 1) #draw y-axis with tick marks, make labels perpendicular to axis and closer to axis
+axis(1, at = seq(-1,1,by=1), labels =c(-1,0,1) , tick = T,
+     cex.axis = 1, mgp = c(4,1.5,1))
+axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 1) 
 abline(h = 0, v=0, col="gray",lty=2,lwd=2.5)
-# draw dotted line through 0 
-#box(bty = "l") #place box around plot
-segments(coef.vec.2-qnorm(.975)*se.vec.2, y.axis-adjust, coef.vec.2+qnorm(.975)*se.vec.2, y.axis-adjust,lwd = 1.5, col = c("blue"))#draw lines connecting 95% confidence intervals
-points(coef.vec.2, y.axis-adjust,pch = 17, cex = 1, col = c("blue")) #add point estimates for 2nd model; pch = 21 uses for overlay points, and "white" for white color
+
+segments(coef.vec.2-qnorm(.975)*se.vec.2, y.axis-adjust, coef.vec.2+qnorm(.975)*se.vec.2, y.axis-adjust,lwd = 1.5, col = c("blue"))
+points(coef.vec.2, y.axis-adjust,pch = 17, cex = 1, col = c("blue"))
 legend("bottom", 
        legend = c("Below median", "Above median"), 
        col = c("red", "blue"), xpd=TRUE,
@@ -200,22 +197,22 @@ se.vec2<-c(outgroup_he_age_se2, swb_he_age_se2, news_he_age_se2)
 adjust = 0.06
 
 layout(matrix(c(2,1),1,2), #in order to add variable categories and braces to left side of plot, 
-       widths = c(1.5, 5))#w
+       widths = c(1.5, 5))
 var.names <- c("Out-Group Attitudes","Subjective Well-Being", "News Knowledge")
 y.axis <- c(length(var.names):1) 
 par(mgp=c(2.5,1,0))   # x axis closer
-plot(coef.vec, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = 19,cex = 0.8,#plot coefficients as points, turning off axes and labels.
+plot(coef.vec, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = 19,cex = 0.8,
      xlim = c(-1,1), xaxs = "r", main = "Age", col="red",cex.lab=0.8)
 par(mar=c(5,4,4,2)+0.1)
 segments(coef.vec-qnorm(.975)*se.vec, y.axis, coef.vec+qnorm(.975)*se.vec, y.axis, lwd = 1.6, col = c("red"))
-axis(1, at = seq(-1,1,by=1), labels =c(-1,0,1) , tick = T,#draw x-axis and labels with tick marks
-     cex.axis = 1, mgp = c(4,1.5,1))#reduce label size, moves labels closer to tick marks; zadnji u mgp spusta x liniju nize
-axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 1) #draw y-axis with tick marks, make labels perpendicular to axis and closer to axis
+axis(1, at = seq(-1,1,by=1), labels =c(-1,0,1) , tick = T,
+     cex.axis = 1, mgp = c(4,1.5,1))
+axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 1)
 abline(h = 0, v=0, col="gray",lty=2,lwd=2.5)
 # draw dotted line through 0 
 #box(bty = "l") #place box around plot
-segments(coef.vec.2-qnorm(.975)*se.vec.2, y.axis-adjust, coef.vec.2+qnorm(.975)*se.vec.2, y.axis-adjust,lwd = 1.5, col = c("blue"))#draw lines connecting 95% confidence intervals
-points(coef.vec.2, y.axis-adjust,pch = 17, cex = 1, col = c("blue")) #add point estimates for 2nd model; pch = 21 uses for overlay points, and "white" for white color
+segments(coef.vec.2-qnorm(.975)*se.vec.2, y.axis-adjust, coef.vec.2+qnorm(.975)*se.vec.2, y.axis-adjust,lwd = 1.5, col = c("blue"))
+points(coef.vec.2, y.axis-adjust,pch = 17, cex = 1, col = c("blue")) 
 legend("bottom", 
        legend = c("Above median", "Below median"), 
        col = c("red", "blue"), xpd=TRUE,
@@ -276,23 +273,21 @@ se.vec2<-c(outgroup_he_ethn_se2, swb_he_ethn_se2, cnews_he_ethn_se2)
 
 adjust = 0.06
 
-layout(matrix(c(2,1),1,2), #in order to add variable categories and braces to left side of plot, 
-       widths = c(1.5, 5))#w
+layout(matrix(c(2,1),1,2), 
+       widths = c(1.5, 5))
 var.names <- c("Out-Group Attitudes","Subjective Well-Being", "News Knowledge")
 y.axis <- c(length(var.names):1) 
 par(mgp=c(2.5,1,0))   # x axis closer
-plot(coef.vec, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = 19,cex = 0.8,#plot coefficients as points, turning off axes and labels.
+plot(coef.vec, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = 19,cex = 0.8,
      xlim = c(-1,1), xaxs = "r", main = "Ethnicity", col="red",cex.lab=0.8)
 par(mar=c(5,4,4,2)+0.1)
 segments(coef.vec-qnorm(.975)*se.vec, y.axis, coef.vec+qnorm(.975)*se.vec, y.axis, lwd = 1.6, col = c("red"))
-axis(1, at = seq(-1,1,by=1), labels =c(-1,0,1) , tick = T,#draw x-axis and labels with tick marks
-     cex.axis = 1, mgp = c(4,1.5,1))#reduce label size, moves labels closer to tick marks; zadnji u mgp spusta x liniju nize
-axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 1) #draw y-axis with tick marks, make labels perpendicular to axis and closer to axis
+axis(1, at = seq(-1,1,by=1), labels =c(-1,0,1) , tick = T,
+     cex.axis = 1, mgp = c(4,1.5,1))
+axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 1) 
 abline(h = 0, v=0, col="gray",lty=2,lwd=2.5)
-# draw dotted line through 0 
-#box(bty = "l") #place box around plot
-segments(coef.vec.2-qnorm(.975)*se.vec.2, y.axis-adjust, coef.vec.2+qnorm(.975)*se.vec.2, y.axis-adjust,lwd = 1.5, col = c("blue"))#draw lines connecting 95% confidence intervals
-points(coef.vec.2, y.axis-adjust,pch = 17, cex = 1, col = c("blue")) #add point estimates for 2nd model; pch = 21 uses for overlay points, and "white" for white color
+segments(coef.vec.2-qnorm(.975)*se.vec.2, y.axis-adjust, coef.vec.2+qnorm(.975)*se.vec.2, y.axis-adjust,lwd = 1.5, col = c("blue"))
+points(coef.vec.2, y.axis-adjust,pch = 17, cex = 1, col = c("blue"))
 legend("bottom", 
        legend = c("Bosniak", "Serb"), 
        col = c("red", "blue"), xpd=TRUE,
@@ -378,23 +373,23 @@ se.vec<-c(het_entity_se, swb_het_entity_se, cnews_het_entity_se)
 se.vec2<-c(het_entity_se2, swb_het_entity_se2, cnews_het_entity_se2)
 
 adjust = 0.06
-layout(matrix(c(2,1),1,2), #in order to add variable categories and braces to left side of plot, 
-       widths = c(1.5, 5))#w
+layout(matrix(c(2,1),1,2), 
+       widths = c(1.5, 5))
 var.names <- c("Out-Group Attitudes","Subjective Well-Being", "News Knowledge")
 y.axis <- c(length(var.names):1) 
 par(mgp=c(2.5,1,0))   # x axis closer
-plot(coef.vec, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = 19,cex = 0.8,#plot coefficients as points, turning off axes and labels.
+plot(coef.vec, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = 19,cex = 0.8,
      xlim = c(-1,1), xaxs = "r", main = "Entity", col="red",cex.lab=0.8)
 par(mar=c(5,4,4,2)+0.1)
 segments(coef.vec-qnorm(.975)*se.vec, y.axis, coef.vec+qnorm(.975)*se.vec, y.axis, lwd = 1.6, col = c("red"))
-axis(1, at = seq(-1,1,by=1), labels =c(-1,0,1) , tick = T,#draw x-axis and labels with tick marks
-     cex.axis = 1, mgp = c(4,1.5,1))#reduce label size, moves labels closer to tick marks; zadnji u mgp spusta x liniju nize
-axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 1) #draw y-axis with tick marks, make labels perpendicular to axis and closer to axis
+axis(1, at = seq(-1,1,by=1), labels =c(-1,0,1) , tick = T,
+     cex.axis = 1, mgp = c(4,1.5,1))
+axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex.axis = 1)
 abline(h = 0, v=0, col="gray",lty=2,lwd=2.5)
 # draw dotted line through 0 
 #box(bty = "l") #place box around plot
-segments(coef.vec.2-qnorm(.975)*se.vec.2, y.axis-adjust, coef.vec.2+qnorm(.975)*se.vec.2, y.axis-adjust,lwd = 1.5, col = c("blue"))#draw lines connecting 95% confidence intervals
-points(coef.vec.2, y.axis-adjust,pch = 17, cex = 1, col = c("blue")) #add point estimates for 2nd model; pch = 21 uses for overlay points, and "white" for white color
+segments(coef.vec.2-qnorm(.975)*se.vec.2, y.axis-adjust, coef.vec.2+qnorm(.975)*se.vec.2, y.axis-adjust,lwd = 1.5, col = c("blue"))
+points(coef.vec.2, y.axis-adjust,pch = 17, cex = 1, col = c("blue"))
 legend("bottom", 
        legend = c("Federation", "RS"), 
        col = c("red", "blue"), xpd=TRUE,

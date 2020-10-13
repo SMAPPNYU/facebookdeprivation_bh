@@ -33,8 +33,7 @@ se.vec <- c(news_se2,
                   loneliness_se2,
                   depression_se2,
                   isol_se2)
-#coef.vec<- c(-0.243,0.176,0.003 ,0.059, -0.009, -0.384,0.042,-0.220, -0.120,0.018)
-#se.vec <- c(0.108,0.106,0.116,0.106,0.107,0.108,0.111,0.106,0.113, 0.117)
+
 var.names <- c("News Knowledge","Well-being index","Satisfaction","Joy","Fulfillment","Anxiety","Boredom","Loneliness", "Depression","Isolation")
 results_df <- data.frame(term=var.names, estimate=coef.vec,
                          std.error=se.vec)
@@ -84,9 +83,6 @@ se.vec_outgroup <- c(ft_se2,
                      perc_se2,
                      otgrp_se2,
                      outgroup_pc_se2)
-
-# coef.vec<- c(-0.238, -0.160,-0.223,-0.038, -0.007, -0.237)
-# se.vec <- c(0.113,0.116, 0.112,0.110,0.107, 0.113)
 var.names <- c("Feeling thermometer","Social closeness","Cooperation","Perception of \n out-group evaluations","Out-group traits","Out-group regard index")
 results_df <- data.frame(term=var.names, estimate=coef.vec_outgroup,std.error=se.vec_outgroup)
 y.axis <- c(length(coef.vec_outgroup):1)
@@ -157,8 +153,6 @@ axis(2, at = y.axis, label = var.names, las = 1, tick = T, mgp = c(1.6,.7,0),cex
 # heterogenous - right panel
 coef.vec_fig3 <- c(outgroup_se_pc_htr_coef2,outgroup_ms_htr_pc_coef2, outgroup_ef_htr_pc_coef2)
 se.vec_fig3 <- c(outgroup_se_pc_htr_se2, outgroup_ms_htr_pc_se2, outgroup_ef_htr_pc_se2)
-#coef.vec_fig3.2<-c(-0.07709326,-0.166649, -0.01065272)
-#se.vec_fig3.2<-c(0.1503582, 0.2293604,0.1496785)
 adjust = 0.26
 plot(coef.vec_fig3, y.axis, type = "p", axes = F, xlab = "Treatment effect (SD)", ylab = "", pch = c(19,17,12),cex = 1.2,#plot coefficients as points, turning off axes and labels.
      xlim = c(-1,1), xaxs = "r", main = "Heterogenous", col=c("black","blue","red"),cex.lab=0.9)

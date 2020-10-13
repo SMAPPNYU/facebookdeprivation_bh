@@ -28,7 +28,7 @@ stargazer::stargazer(combined[des.variables], type="text")
 # --------------------------------------------------------------------
 
 combined$ethn_t <- NA
-combined[which(combined$ethn=="1" | combined$ethn=="-1"),]$ethn_t <- 1 #Bosniak
+combined[which(combined$ethn=="1" | combined$ethn=="-1"),]$ethn_t<- 1 #Bosniak
 combined[which(combined$ethn=="2"|combined$ethn=="-4"),]$ethn_t<-2 #Serb
 combined[which(combined$ethn=="3"|combined$ethn=="-5"),]$ethn_t<-3 #Croat
 combined[which(combined$ethn=="-3"|combined$ethn=="-2"),]$ethn_t<-4 #Bosnian
@@ -41,7 +41,7 @@ combined[which(combined$ethn=="0"),]$ethn_t<-5 #Other/Do not want to say
 
 
 table2<-table(combined$ethn_t) 
-names(table2) <- c("Bosniak","Serb","Croat","Bosnian","Other/Do not want to say")
+names(table2)<-c("Bosniak","Serb","Croat","Bosnian","Other/Do not want to say")
 table2<-cbind(table2, as.vector(table2/353*100))
 colnames(table2)<-c("No. of people","Share")
 table2
@@ -68,10 +68,10 @@ balance_table
 # ------------------------------------------------
 
 attrition_ctrl<-read_excel("sept18_active_attrition_c.xlsx")
-attrition_treat <-read_excel("sept18_attrition_treatedgroup_c_sept20.xlsx")
+attrition_treat<-read_excel("sept18_attrition_treatedgroup_c_sept20.xlsx")
 
-attrition_ctrl <- combined[,bal.variables]
-attrition_treat  <- combined[,bal.variables]
+attrition_ctrl<- combined[,bal.variables]
+attrition_treat<-combined[,bal.variables]
 
 p.values<-cbind(sapply(bal.variables, function (x) t.test(combined[combined$treatment==1,][,x], attrition_treat[,x]))[3,])
 
@@ -105,7 +105,7 @@ print(prcomp, digits=3) # Checking the loadings
                        
 # NOTE FOR JIM [one possibility is to create the analysis function that will apply to all variables (below for Model 3, full covariate spec), but it seemed to me that going model by model
                        # for each separate outcome is easier for readers to follow; if you think it's too mundane/repetitive, I could use a function through which
-                       # all outcomes could be run, as below for c_news]
+                       # all outcomes could be run, as below on the example of news as the outcome]
                        
  # VERSION separate function for model 3                                  
 ITT_res <- function(vUp="",
@@ -128,7 +128,7 @@ ITT_res <- function(vUp="",
   results$label <- label_name
   return(results)
 }                   
-ITT_res("c_news","label",combined) # results$standardized_est is the coef of interest
+ITT_res("c_news","label",combined) # for example, for news outcome: results$standardized_est is the coef of interest
                        
 # VERSION Model by Model                      
 # Primary index - sum of z-scores
@@ -338,7 +338,7 @@ news_coef2<-news2$coefficients[2]/sd(combined[combined$treatment=="0",]$c_news)
 news_se2<-news2$std.error[2]/ sd(combined[combined$treatment=="0",]$c_news)
 
 # Table S5 - Model 1
-# extract results of interest [models as estimated within main-analyses.R/code_review_megan.R]
+# extract results of interest 
 coef.vec <- c(news_coef,
                swb_coef,
                satisfaction_coef,

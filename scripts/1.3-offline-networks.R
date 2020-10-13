@@ -5,8 +5,8 @@
 # -------  Ethnic Fractionalization Index
 
 # Calculated using the formula below (and on p. 15 of SI); already incorporated into the dataset
-#for (i in 1:length(combined$X)){
- #combined$fractionalization_offline_index[i] <- 1 - (combined$bosniak[i]^2+combined$serb[i]^2+combined$croat[i]^2)}
+# for (i in 1:length(combined$X)){
+ # combined$fractionalization_offline_index[i] <- 1 - (combined$bosniak[i]^2+combined$serb[i]^2+combined$croat[i]^2)}
 combined$ef_median_index<-ifelse(combined$fractionalization_offline_index== median(combined$fractionalization_offline_index)|combined$fractionalization_offline_index>median(combined$fractionalization_offline_index),1,0) # smaller, more homogenous; 1 is more het
 
 # ------- City Homogeneity: Majority Share
@@ -15,8 +15,8 @@ combined$ms_median_index <- ifelse(combined$largest_majority > median(combined$l
 # -------  Shannon Entropy
 # Calculated using the formula below; already incorporated in the dataset; 
 # where one group is 0 (for three cities; log undefined), value calculated manually
-#for (i in 1:length(combined$X)){
-  #combined_old$shannon_offline[i] <- -(combined$bosniak[i]*log(combined$bosniak[i])+combined$croat[i]*log(combined$croat[i])+combined$serb[i]*log(combined$serb[i]))}
+# for (i in 1:length(combined$X)){
+  # combined_old$shannon_offline[i] <- -(combined$bosniak[i]*log(combined$bosniak[i])+combined$croat[i]*log(combined$croat[i])+combined$serb[i]*log(combined$serb[i]))}
 combined$se_median_index<-ifelse(combined$shannon_offline >   median(na.omit(combined$shannon_offline)) |  combined$shannon_offline == median(na.omit(combined$shannon_offline)), 1, 0)
 
 # ------ Effects on the three main families of outcomes, within homogenous communities within 3 indices of diversity
@@ -52,13 +52,11 @@ outgroup_ef_pc_se1<-outgroup_pc_ef$std.error[2]/ sd(combined[combined$ef_median_
 # full covariate adjustment, Model 3
 covIn <- as.formula("~freq_usage+as.factor(ethn_t)+gender+age+educ+employ1+imp_ethn+imp_cntry")
 m<-lm_lin(outgroup_index~treatment, covariates=covIn, data=combined[combined$ef_median_index==0,])
-summary(m)
 outgroup_ef_coef2<-m$coefficients[2] /sd(combined[combined$ef_median_index==0 & combined$treatment==0,]$outgroup_index)
 outgroup_ef_se2<-m$std.error[2]/ sd(combined[combined$ef_median_index==0 &combined$treatment==0,]$outgroup_index)
 
 covIn <- as.formula("~freq_usage+as.factor(ethn_t)+gender+age+educ+employ1+imp_ethn+imp_cntry")
 m_pc<-lm_lin(outgroup_princomp~treatment, covariates=covIn, data=combined[combined$ef_median_index==0,])
-summary(m_pc)
 outgroup_ef_pc_coef2<-m_pc$coefficients[2] /sd(combined[combined$ef_median_index=="0"&combined$treatment=="0",]$outgroup_princomp)
 outgroup_ef_pc_se2<-m_pc$std.error[2]/ sd(combined[combined$ef_median_index=="0"&combined$treatment=="0",]$outgroup_princomp)
 
@@ -257,7 +255,7 @@ join_all(list(merged_ef, merged_ef1, merged_ef2), by="names")
 # -------------------------------------------
 #  Models for Table 10 - SHANNON ENTROPY
 # ------------------------------------------
-# ---------  Shannon Entropy: Out-group attitudes indicator-by-indicator analysis within homogenous communities
+# ---------  Shannon Entropy: Main outcome (out-group regard index)  analysis within homogenous communities
 
 m <-lm((outgroup_index)~(treatment), data=combined[combined$se_median_index==0,])
 outgroup_se_coef<-coeftest(m, vcov = vcovHC(m, type = "HC1"))[2,1]/sd(combined[combined$se_median_index==0 & combined$treatment=="0",]$outgroup_index)
@@ -291,7 +289,7 @@ outgroup_se_pc_coef2<-outgroup_pc_se2$coefficients[2] /sd(combined[combined$se_m
 outgroup_se_pc_se2<-outgroup_pc_se2$std.error[2]/ sd(combined[combined$se_median_index=="0"&combined$treatment=="0",]$outgroup_princomp)
 
 
-# Shannon Entropy: Heterogenous Communities
+# ---------  Shannon Entropy: Main outcome (out-group regard index)  analysis within heterogenous communities
 m <-lm((outgroup_index)~(treatment), data=combined[combined$se_median_index==1,])
 outgroup_se_htr_coef<-coeftest(m, vcov = vcovHC(m, type = "HC1"))[2,1]/sd(combined[combined$se_median_index==1 & combined$treatment=="0",]$outgroup_index)
 outgroup_se_htr_se_htr<-coeftest(m, vcov = vcovHC(m, type = "HC1"))[2,2]/sd(combined[combined$se_median_index==1 & combined$treatment=="0",]$outgroup_index)
@@ -321,7 +319,7 @@ outgroup_se_pc_htr_coef2<-outgroup_pc_se_htr2$coefficients[2] /sd(combined[combi
 outgroup_se_pc_htr_se2<-outgroup_pc_se_htr2$std.error[2]/ sd(combined[combined$se_median_index=="0"&combined$treatment=="0",]$outgroup_princomp)
 
 
-# ---------  Shannon Entropy: Out-group attitudes indicator-by-indicator analysis within homogenous communities
+# ---------  Shannon Entropy: Out-group attitudes (indicator-by-indicator) analysis within homogenous communities
 
 # Feeling Thermometer
 # model 1: baseline
@@ -475,8 +473,7 @@ join_all(list(merged_se, merged_se1, merged_se2), by="names")
 # -------------------------------------------------------
 #      Models for Table 11 -  MAJORITY GROUP SHARE
 # -------------------------------------------------------
-# -------- Effect on the three main families of outcomes, within homogenous communities within 3 indices of diversity
-
+# ---------  Majority Group Share: Main outcome (out-group regard index)  analysis within homogenous communities
 # Outgroup Attitudes
 outgroup_model_ms<-lm((outgroup_index)~(treatment), data=combined[combined$ms_median_index==1,])
 outgroup_ms_coef<-coeftest(outgroup_model_ms , vcov = vcovHC(outgroup_model_ms, type = "HC1"))[2,1]/sd(combined[combined$ms_median_index==1 & combined$treatment=="0",]$outgroup_index)
@@ -505,7 +502,7 @@ outgroup_pc_model2_ms<-lm(outgroup_princomp~treatment+freq_usage+as.factor(ethn_
 outgroup_ms_pc_coef2<-coeftest(outgroup_pc_model2_ms, vcov = vcovHC(m, type = "HC1"))[2,1]/sd(combined[combined$ms_median_index==1 & combined$treatment=="0",]$outgroup_princomp)
 outgroup_ms_pc_se2<-coeftest (outgroup_pc_model2_ms, vcov = vcovHC(m, type = "HC1"))[2,2]/sd(combined[combined$ms_median_index==1 & combined$treatment=="0",]$outgroup_princomp)
 
-# Heterogenous Communities:
+# ---------  Majority Group Share: Main outcome (out-group regard index)  analysis within heterogenous communities
 # Outgroup Attitudes
 m <-lm((outgroup_index)~(treatment), data=combined[combined$ms_median_index==0,])
 outgroup_ms_coef<-coeftest(m , vcov = vcovHC(m, type = "HC1"))[2,1]/sd(combined[combined$ms_median_index==0 & combined$treatment=="0",]$outgroup_index)
@@ -835,11 +832,9 @@ combined$ef_median_index_rev<-ifelse(combined$fractionalization_offline_index== 
 combined$ms_median_index <- ifelse(combined$largest_majority > median(combined$largest_majority) | combined$largest_majority==median(combined$largest_majority), 1, 0) 
 combined$se_median_index_rev<-ifelse(combined$shannon_offline >   median(na.omit(combined$shannon_offline)) |  combined$shannon_offline == median(na.omit(combined$shannon_offline)), 1, 0)
 
-
 # 1 is more homogenous within the rev index
 ef_interaction <- lm(outgroup_princomp ~ treatment +ef_median_index_rev+treatment:ef_median_index_rev,
                      data=combined)
-summary(ef_interaction)
 ef_median_intr_coef<-coeftest(ef_interaction, vcov = vcovHC(ef_interaction, type = "HC1"))[2,1]/sd(combined[combined$treatment==0,]$outgroup_princomp)
 ef_median_intr_se<-coeftest(ef_interaction, vcov = vcovHC(ef_interaction, type = "HC1"))[2,2]/sd(na.omit(combined[combined$treatment==0,]$outgroup_princomp))
 
@@ -866,7 +861,6 @@ se_median_intr_se1<-m$std.error[6]/sd(combined[combined$treatment==0,]$outgroup_
 
 covIn <- as.formula("~freq_usage+as.factor(ethn_t)+gender+age+educ+employ1+imp_ethn+se_median_index_rev")
 m<-lm_lin(outgroup_princomp~treatment, covariates=covIn, data=combined)
-summary(m)
 se_median_intr_coef2<-m$coefficients[24]/sd(combined[combined$treatment==0,]$outgroup_princomp)
 se_median_intr_se2<-m$std.error[24]/sd(combined[combined$treatment==0,]$outgroup_princomp)
 

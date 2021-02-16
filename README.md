@@ -19,10 +19,7 @@ To run the code, initiate: `git clone https://github.com/SMAPPNYU/facebookdepriv
 
 ## Data
 
-- `bosnia_data_anonym.csv` contains the anonymized dataset used in the analysis (necessary for running all the 01_ scripts below). Personal information about individual users has been anonymized to ensure participant privacy, and the original Facebook URLs have been replaced by random numbers. 
-- `active_attrition.csv` contains baseline survey results of drop-out participants from the control group; used to calculate and evaluate attrition. 
-- `deactive_attrition.csv` contains baseline survey results of drop-out participants from the treatment group; used to calculate and evaluate attrition.  
-
+- `bosnia_data_anonym.csv` contains the anonymized dataset used in the analysis (necessary for running all the scripts below). Personal information about individual users has been anonymized to ensure participant privacy, and identifying information has been taken out.
 
 To download the data files, go to XX.
 
@@ -30,15 +27,15 @@ To download the data files, go to XX.
 ## Code
 Below is the code necessary for replicating all the figures/tables in the main text of the paper and supplementary analysis.
 
-- **`01_analysis.R/`** - main script listing the necessary packages, uploading the dataset, creating indicators and specifying the models (users should run this script and have it be active within the global environment to run all the other scripts listed below); also contains code for replicating Table S1-S8
+- **`01_analysis.R/`** - main script listing the necessary packages, uploading the dataset, creating indicators and specifying the models (users should run this script and have it be active within the global environment to run all the other scripts listed below); also contains code for replicating Table S1-S9, analyzing baseline characteristics of the attrition sample, and testing the sensitivity of results to outliers
 	* `1.1-heterogenous-effects.R` - replicates Fig S2
 	* `1.2-fb-substitutes.R` - replicates Fig S3 and S4
-	* `1.3-offline-networks.R` - replicates Tables S9-S16
-	* `1.4-online-networks.R` - replicates Tables S17-S20 + Fig S5
-	* `1.5-offline-online-interaction.R` - replicates Fig S5.A, Fig 6
-	* `1.6-attrition.R` - replicates X [checking w JT]
+	* `1.3-offline-networks.R` - replicates Tables S10-S17
+	* `1.4-online-networks.R` - replicates Tables S18-S20 + Fig S5-S6
+	* `1.5-offline-online-interaction.R` - replicates Table S21, S22
+	* `1.6-pol-disaffection.R` - replicates Table S23, Fig S8 and S9
       
-- **`02_maintext.R/`** generates all the figures in the main text (Fig 1, Fig 2 and Fig 3); the models from which it derives coefficients and standard errors are specified within the above-mentioned analysis (particularly `01_analysis.R` and `1.4-offline-networks.R` need to be within the global environment)
+- **`02_maintext.R/`** generates all the figures in the main text (Fig 1, Fig 2 and Fig 3); the models from which it derives coefficients and standard errors are specified within the above-mentioned analysis (and are sourced at the beginning of each script into the global environment)
 	
 	
 -  **`03_count_network_diversity.py`** - script estimating proportion of each ethnic group within online networks/friend lists of users who shared their online data with our research team. Lists are filtered to friends made prior to July 8, 2019, the week the experiment started to capture only pre-treatment friendships. To respect and ensure the privacy of our participants, we cannot publicly share the raw files with names but instead provide aggregated proportions for each user within the main dataset (these proportions - variables "bosniak_online_v1", "serb_online_v1", "croat_online_v1" and "bosniak_online_v2", "serb_online_v2", "croat_online_v2" - are then used in the analysis of network diversity, as in the script `1.4_online_networks.R`). 

@@ -2,13 +2,14 @@
 # File-Name: 1.6-pol-disaffection.R
 # Date: 2021
 # Purpose: Analyzing the effect of the treatment of deactivation on the outcome of political disaffection
+# Machine: MacOS High Sierra 
 ###################################################################################################################
 
 source("1.5-offline-online-interaction.R") 
 
-# ----------------------------------------------
-#   POLITICAL DISAFFECTION [in SI, Section 14]
-# -----------------------------------------------
+# --------------------------------------------------------------
+#         POLITICAL DISAFFECTION [in SI, Section 14]
+# ---------------------------------------------------------------
 # Creating indices as sums of z-scores
 
 # cynicism
@@ -35,19 +36,19 @@ final_data$disaffection_pc_index <- pc_index(dataIn=disaffection_pc,
 
 
 # ------ Table S23
-TableS23.1<-do.call(data.frame,rbind(
+TableS23.1 <- do.call(data.frame,rbind(
   reg_res_mod1("apathy",final_data),
   reg_res_mod1("cynicism",final_data),
   reg_res_mod1("skepticism",final_data),
   reg_res_mod1("disaffection_pc_index",final_data)))
 
-TableS23.2<-do.call(data.frame,rbind(
+TableS23.2 <- do.call(data.frame,rbind(
   reg_res_mod2("apathy",final_data),
   reg_res_mod2("cynicism",final_data),
   reg_res_mod2("skepticism",final_data),
   reg_res_mod2("disaffection_pc_index",final_data)))
 
-TableS23.3<-do.call(data.frame,rbind(
+TableS23.3 <- do.call(data.frame,rbind(
   reg_res_mod3("apathy",final_data),
   reg_res_mod3("cynicism",final_data),
   reg_res_mod3("skepticism",final_data),
@@ -59,20 +60,21 @@ print(tableS23, digits=3)
 # In Table 23, variables not reverse coded (hence the difference in signs) to make it easier to follow the meaning of estimates
 # [i.e. positive estimate indicates an increase in apathy etc.]
 
-# ------ Explanations
+# ----------------------------------------------------------------------
+#            ADDITIONAL POLITICAL DISAFFECTION OUTCOMES
+# -----------------------------------------------------------------------
 
-# external political efficacy
-
+# External political efficacy
 final_data$agr_st15 <- -final_data$agr_st15 # recoding, so that higher values indicate more positive attribution 
 final_data$ext_efficacy <- scale(final_data$agr_st14)+scale(final_data$agr_st15)
 
-# government efficacy
+# Government efficacy
 final_data$pol_efficacy <- scale(final_data$agr_st11)+scale(final_data$agr_st12)+scale(final_data$agr_st13)
 
-# trust in institutions
+# Trust in institutions
 final_data$trust <- scale(final_data$trust_media)+scale(final_data$trust_pol)+scale(final_data$trust_inst)+scale(final_data$trust_relg)+scale(final_data$trust_ngo)+scale(final_data$trust_gov)
 
-# ---------- Plot [Figure S7]
+# ------ Plot: Figure S7
 
 dev.off() 
 #pdf(file = "/Users/nejlaasimovic/Desktop/fig8.pdf",   # The directory you want to save the file in
@@ -114,7 +116,7 @@ abline(h = 9.5, v=0, col="gray",lty=2,lwd=1.4)
 # dev.off()
 
 
-# -------- Plotting explanatory/additional disaffection variables
+# ------ Plot: Figure S8
 dev.off() #
 #pdf(file = "/Users/nejlaasimovic/Desktop/fig9.pdf",   # The directory you want to save the file in
 #  width = 5.5, # The width of the plot in inches

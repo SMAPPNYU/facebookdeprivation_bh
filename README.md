@@ -30,14 +30,14 @@ Below is the code necessary for replicating all the figures/tables in the main t
 	* `1.1-heterogenous-effects.R` - replicates Fig S2
 	* `1.2-fb-substitutes.R` - replicates Fig S3 and S4
 	* `1.3-offline-networks.R` - replicates Tables S10-S17
-	* `1.4-online-networks.R` - replicates Tables S18-S20 + Fig S5-S6
-	* `1.5-offline-online-interaction.R` - replicates Table S21, S22
-	* `1.6-pol-disaffection.R` - replicates Table S23, Fig S8 and S9
+	* `1.4-online-networks.R` - replicates Tables S18-S20, Fig S5
+	* `1.5-offline-online-interaction.R` - replicates Table S21-S22, Fig S6
+	* `1.6-pol-disaffection.R` - replicates Table S23, Fig S7 and S8
       
 - **`02_maintext.R/`** generates all the figures in the main text (Fig 1, Fig 2 and Fig 3); the models from which it derives coefficients and standard errors are specified within the above-mentioned analysis (and are sourced at the beginning of each script into the global environment)
 	
 	
--  **`03_count_network_diversity.py`** - script estimating proportion of each ethnic group within online networks/friend lists of users who shared their online data with our research team. Lists are filtered to friends made prior to July 8, 2019, the week the experiment started to capture only pre-treatment friendships. To respect and ensure the privacy of our participants, we cannot publicly share the raw files with names but instead provide aggregated proportions for each user within the main dataset (these proportions -- variables "bosniak_online_v1", "serb_online_v1", "croat_online_v1" -- are then used in the analysis of network diversity, as in the script `1.4_online_networks.R`). 
+-  **`count_network_diversity.py`** - script estimating proportion of each ethnic group within online networks/friend lists of users who shared their online data with our research team. Lists are filtered to friends made prior to July 8, 2019, the week the experiment started to capture only pre-treatment friendships. To respect and ensure the privacy of our participants, we cannot publicly share the raw files with names but instead provide aggregated proportions for each user within the main dataset (these proportions -- variables "bosniak_online_v1", "serb_online_v1", "croat_online_v1" -- are then used in the analysis of network diversity, as in the script `1.4_online_networks.R`). 
 
 
 ## Authors

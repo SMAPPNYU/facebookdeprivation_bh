@@ -44,7 +44,7 @@ final_data$largest_majority_online <- apply(dat, 1, max) # identify maximum valu
 final_data$online_ms_median_index <- ifelse(final_data$largest_majority_online >= median(na.omit(final_data$largest_majority_online)), 1, 0) # 1 is more homogeneous
 
 # ----------------------------------------------------------------------------------
-# Table S17: Difference between people who sent vs did not send their online data
+# Table S18: Difference between people who sent vs did not send their online data
 # ----------------------------------------------------------------------------------
 bal.variables <- c("gender","age","educ","employ1","trust_media.1","freq_news","freq_fbnews","politics_int","numb_forums","time_usage", "freq_usage","imp_ethn","imp_family","imp_cntry","imp_relg","imp_career","imp_neigh","imp_hobby")
 

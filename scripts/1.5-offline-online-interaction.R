@@ -1,10 +1,10 @@
 #########################################################################################
-# File-Name: 1.4-online-networks_r.R
+# File-Name: 1.4-online-networks.R
 # Date: 2021
 # Purpose: Analyzing the interaction of users' offline and online network heterogeneity
 ###########################################################################################
 
-source("1.4-online-networks_r.R") 
+source("1.4-online-networks.R") 
 
 # -----------------------------
 #           Table S21

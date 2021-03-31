@@ -9,10 +9,6 @@
 
 source("01-analysis.R") 
 
-variables <- c("fractionalization_offline_index","largest_majority","shannon_offline")
-for(varUp in variables){
-  final_data[,paste0(varUp)] <- as.numeric(final_data[,paste0(varUp)])
-}
 # ------------------------------------------------
 #   Creating indices of offline heterogeneity
 # -------------------------------------------------

@@ -1,5 +1,5 @@
 #########################################################################################
-# File-Name: 02-maintext_r.R
+# File-Name: 02-maintext.R
 # Date: 2021
 # Purpose: # This script replicates the figures and tables presented in the main text
 # Machine: MacOS High Sierra

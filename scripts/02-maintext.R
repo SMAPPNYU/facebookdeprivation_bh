@@ -5,7 +5,7 @@
 # Machine: MacOS High Sierra
 ###########################################################################################
 
-source("1.3-offline-networks_r.R") # loading the previous script
+source("1.3-offline-networks.R") # loading the previous script
 
 # ----------------------
 #     FIGURE 1

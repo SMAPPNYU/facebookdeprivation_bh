@@ -1,5 +1,5 @@
 #########################################################################################
-# File-Name: 1.3-offline-networks_r.R
+# File-Name: 1.3-offline-networks.R
 # Date: 2021
 # Purpose: Analyzing the effects of the treatment of deactivation on outgroup regard,
 #          depending on the composition of users' offline networks (Census info incorporated
@@ -7,7 +7,7 @@
 # Machine: MacOS High Sierra
 ###########################################################################################
 
-source("01-analysis_r.R") 
+source("01-analysis.R") 
 
 variables <- c("fractionalization_offline_index","largest_majority","shannon_offline")
 for(varUp in variables){

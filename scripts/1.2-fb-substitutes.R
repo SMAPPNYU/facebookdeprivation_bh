@@ -1,11 +1,11 @@
 #########################################################################################
-# File-Name: 1.2-fb-substitutes_r.R
+# File-Name: 1.2-fb-substitutes.R
 # Date: 2021
 # Purpose: Explores the activities users engaged in during the treatment week
 # Machine: MacOS High Sierra
 ###########################################################################################
 
-source("01-analysis_r.R") 
+source("01-analysis.R") 
 
 # -----------------------------------------------
 #  Facebook Substitutes -  Fig S3

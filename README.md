@@ -18,7 +18,7 @@ To run the code, initiate: `git clone https://github.com/SMAPPNYU/facebookdepriv
 
 ## Data
 
-- `complete_data.csv` contains the anonymized dataset used in the analysis (necessary for running all the scripts below). Personal information about individual users has been anonymized to ensure participant privacy, and identifying information has been taken out. We also report sessionInfo, with the package versions we used reported.
+- `replication_data.csv` contains the anonymized dataset used in the analysis (necessary for running all the scripts below). Personal information about individual users has been anonymized to ensure participant privacy, and identifying information has been taken out. We also report sessionInfo, with the package versions we used reported.
 
 To download the data files, go to XX.
 

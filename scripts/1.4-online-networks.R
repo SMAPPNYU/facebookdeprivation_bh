@@ -1,5 +1,5 @@
 #########################################################################################
-# File-Name: 1.4-online-networks_r.R
+# File-Name: 1.4-online-networks.R
 # Date: 2021
 # Purpose: Analyzing the effects of the treatment of deactivation on outgroup regard,
 #          depending on the composition of users' online networks (calculated percentages 
@@ -7,7 +7,7 @@
 # Machine: MacOS High Sierra
 ###########################################################################################
 
-source("1.3-offline-networks_r.R") 
+source("1.3-offline-networks.R") 
 
 # ------------- Obtain proportions to be used in the analysis 
 #               (percentages in the original form)

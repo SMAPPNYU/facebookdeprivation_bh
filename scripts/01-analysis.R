@@ -11,7 +11,7 @@
 rootArg <-  if(Sys.info()["user"]=="nejlaasimovic"){
 setwd("/Users/nejlaasimovic/Desktop/pnas_revisions/code_pnas")
 }
-sessionInfo()
+
 # Source the analysis functions
 source("/Users/nejlaasimovic/Desktop/pnas_revisions/code_pnas/functions.R") 
 

@@ -13,7 +13,7 @@ setwd("/Users/nejlaasimovic/Desktop/pnas_revisions/code_pnas")
 }
 sessionInfo()
 # Source the analysis functions
-source("/Users/nejlaasimovic/Desktop/pnas_revisions/code_pnas/functions_r.R") 
+source("/Users/nejlaasimovic/Desktop/pnas_revisions/code_pnas/functions.R") 
 
 # Install ("install.packages()") or/and activate packages
 library(ggplot2); library(ggpubr); 

@@ -5,11 +5,10 @@ This repository contains the replication material for the paper "Growing Closer 
 
 
 > __Abstract:__
-Despite the belief that social media is altering inter-group dynamics - bringing people closer or further alienating groups - the impact of social media on inter-ethnic attitudes has yet to be rigorously evaluated, especially within areas with tenuous inter-ethnic relations. We present a pre-registered evaluation of the effects of exposure to social media during the
-week of genocide remembrance in July 2019 on a set of inter-ethnic attitudes of
-the online users. Focusing on Bosnia-Herzegovina (BiH), we randomly subset users to deactivate
-Facebook accounts and assess inter-ethnic attitudes as a primary
-outcome of interest. We find evidence that, counter pre-registered expectations, people who remained active on Facebook report higher regard for ethnic out-groups than those who deactivated their profiles, but this effect was highly conditional on the composition of one’s offline environment. If that environment is characterized by few to none opportunities for inter-group contact, deactivation may move users to an environment even more homogeneous, and echo chambers even more pronounced, than the ones they experience online. We also extend the analysis to include measures of factual news knowledge and subjective well-being, thus representing the first experimental study of the welfare effects of social media conducted outside of the context of advanced democracies. Our findings suggest that deactivation from social media leads to an increase in subjective well-being and a decrease in news knowledge, replicating results for recent research in the United States in a very different context, thus increasing our confidence in the generalizability of these effects. 
+Despite the belief that social media is altering intergroup dynamics -- bringing people closer or further alienating them from one another -- the impact of social media on inter-ethnic attitudes has yet to be rigorously evaluated, especially within areas with tenuous inter-ethnic relations. We report results from a randomized controlled trial in Bosnia and Herzegovina (BiH), exploring the effects of exposure to social media during a
+week of genocide remembrance in July 2019 on a set of inter-ethnic attitudes of Facebook users. We find evidence that, counter pre-registered expectations, people who deactivated their Facebook profiles report lower regard for ethnic out-groups than those who remained active. Moreover, we present additional evidence suggesting that this effect is highly conditional on the level of ethnic heterogeneity of respondents' residence.
+We also extend the analysis to include measures of subjective well-being and knowledge of news. Here, we find that Facebook deactivation leads to an increase in subjective well-being and a decrease in the knowledge of current events, replicating results from recent research in the U.S. in a very different context, thus increasing our confidence in the generalizability of these effects. 
+
 
 
 ## Install
@@ -19,7 +18,7 @@ To run the code, initiate: `git clone https://github.com/SMAPPNYU/facebookdepriv
 
 ## Data
 
-- `bosnia_data_anonym.csv` contains the anonymized dataset used in the analysis (necessary for running all the scripts below). Personal information about individual users has been anonymized to ensure participant privacy, and identifying information has been taken out.
+- `complete_data.csv` contains the anonymized dataset used in the analysis (necessary for running all the scripts below). Personal information about individual users has been anonymized to ensure participant privacy, and identifying information has been taken out.
 
 To download the data files, go to XX.
 
@@ -38,8 +37,8 @@ Below is the code necessary for replicating all the figures/tables in the main t
 - **`02_maintext.R/`** generates all the figures in the main text (Fig 1, Fig 2 and Fig 3); the models from which it derives coefficients and standard errors are specified within the above-mentioned analysis (and are sourced at the beginning of each script into the global environment)
 	
 	
--  **`03_count_network_diversity.py`** - script estimating proportion of each ethnic group within online networks/friend lists of users who shared their online data with our research team. Lists are filtered to friends made prior to July 8, 2019, the week the experiment started to capture only pre-treatment friendships. To respect and ensure the privacy of our participants, we cannot publicly share the raw files with names but instead provide aggregated proportions for each user within the main dataset (these proportions - variables "bosniak_online_v1", "serb_online_v1", "croat_online_v1" and "bosniak_online_v2", "serb_online_v2", "croat_online_v2" - are then used in the analysis of network diversity, as in the script `1.4_online_networks.R`). 
-The difference in the two versions is in the following: within the first version, names that overlap across ethnic groups are weighted appropriately (i.e., if the name is found across two ethnic groups, we assign 50-50 probability of the person belonging to either; or 33/33/33 if the name appears across three categories); within the second version, proportions are calculated effectively excluding the overlapping names. Within the main data analysis, we use both versions to check robustness. 
+-  **`03_count_network_diversity.py`** - script estimating proportion of each ethnic group within online networks/friend lists of users who shared their online data with our research team. Lists are filtered to friends made prior to July 8, 2019, the week the experiment started to capture only pre-treatment friendships. To respect and ensure the privacy of our participants, we cannot publicly share the raw files with names but instead provide aggregated proportions for each user within the main dataset (these proportions -- variables "bosniak_online_v1", "serb_online_v1", "croat_online_v1" -- are then used in the analysis of network diversity, as in the script `1.4_online_networks.R`). 
+
 
 ## Authors
 

@@ -5,7 +5,7 @@
 #          interest in politics, age, ethnicity, entity (geographical/political subunit)
 ###########################################################################################
 
-source("01-analysis_r.R") 
+source("01-analysis.R") 
 
 # ----------------------------------------
 #     Figure S2: Heterogeneous Effects

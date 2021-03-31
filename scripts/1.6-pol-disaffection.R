@@ -1,10 +1,10 @@
 ###################################################################################################################
-# File-Name: 1.6-pol-disaffection_r.R
+# File-Name: 1.6-pol-disaffection.R
 # Date: 2021
 # Purpose: Analyzing the effect of the treatment of deactivation on the outcome of political disaffection
 ###################################################################################################################
 
-source("1.5-offline-online-interaction_r.R") 
+source("1.5-offline-online-interaction.R") 
 
 # ----------------------------------------------
 #   POLITICAL DISAFFECTION [in SI, Section 14]

@@ -26,7 +26,7 @@ To download the data files, go to XX.
 ## Code
 Below is the code necessary for replicating all the figures/tables in the main text of the paper and supplementary analysis.
 
-- **`01_analysis.R/`** - main script listing the necessary packages, uploading the dataset, creating indicators and specifying the models (users should run this script and have it be active within the global environment to run all the other scripts listed below); also contains code for replicating Table S1-S9, analyzing baseline characteristics of the attrition sample, and testing the sensitivity of results to outliers
+- **`01_analysis.R/`** - main script listing the necessary packages, uploading the dataset, creating indicators and specifying the models (users should run this script and have it be active within the global environment to run all the other scripts listed below); also contains code for replicating Table S1-S3/S5-S9, analyzing baseline characteristics of the attrition sample (Section 1.C), and testing the sensitivity of results to outliers (Section 6)
 	* `1.1-heterogenous-effects.R` - replicates Fig S2
 	* `1.2-fb-substitutes.R` - replicates Fig S3 and S4
 	* `1.3-offline-networks.R` - replicates Tables S10-S17

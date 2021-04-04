@@ -9,11 +9,11 @@
 
 # Set your own working directory
 rootArg <-  if(Sys.info()["user"]=="nejlaasimovic"){
-setwd("/Users/nejlaasimovic/Desktop/pnas_revisions/code_pnas")
+setwd("/Users/nejlaasimovic/Desktop/scripts-april-2021")
 }
-
+sessionInfo()
 # Source the analysis functions
-source("/Users/nejlaasimovic/Desktop/pnas_revisions/code_pnas/functions.R") 
+source("/Users/nejlaasimovic/Desktop/scripts-april-2021/functions.R") 
 
 # Install ("install.packages()") or/and activate packages
 library(ggplot2); library(ggpubr); 
@@ -38,6 +38,11 @@ des.variables <- c("age","gender","educ","employ1","trust_media.1","time_usage",
 stargazer::stargazer(final_data[des.variables], type="text")
 # NB: Min and max are min and max possible values within the survey,
 # hence, the discrepancy on imp_family (no respondent selected the min value)
+
+# Breakdown of the variable indicating importance of ethnic identity to one's self
+table<-100*table(final_data$imp_ethn)/nrow(final_data)
+rownames(table) <- c("Not at all important","Slighly important","Moderately important","Very important","Extremely important")
+table
 
 # -------------------------------------------------------------------
 #    Table S2: DESCRIPTIVE STATISTICS - ethnic composition
@@ -81,7 +86,18 @@ balance_table
 
 bal.variables<-c("gender","age","educ","employ1","trust_media.1","freq_news","politics_int","numb_forums","time_usage","freq_usage","imp_ethn","imp_family","imp_cntry","imp_relg","imp_career","imp_neigh")
 
-# Comparing observable characteristics of the attrition group with the characteristics of the overall sample
+# Comparing treatment and control attrition samples  (SI: top left)
+p.values_comp <- cbind(sapply(bal.variables, function (x) t.test(complete_data[complete_data$treatment==0 & complete_data$attrition=="1",][,x], complete_data[complete_data$treatment==1 & complete_data$attrition=="1",][,x]))[3,])
+balance_attr <- do.call(data.frame, # creating a table combining the mean values and p-values
+                        list(CntrlAttrition = apply(complete_data[,bal.variables][complete_data$treatment==0 & complete_data$attrition=="1",], 2, mean, na.rm=TRUE),
+                             CntrlAttrition_SD =  apply(complete_data[,bal.variables][complete_data$treatment==0 & complete_data$attrition=="1",], 2, sd, na.rm=TRUE),
+                             TreatAttrition =  apply(complete_data[,bal.variables][complete_data$treatment==1 & complete_data$attrition=="1",], 2, mean, na.rm=TRUE),
+                             TreatAttrition_SD =  apply(complete_data[,bal.variables][complete_data$treatment==1 & complete_data$attrition=="1",], 2, sd, na.rm=TRUE),
+                             t.test=p.values_comp))
+print(balance_attr, digits=4) # Comparing treatment and control attrition
+
+
+# Comparing observable characteristics of the attrition group with the characteristics of the overall sample (SI: top right)
 p.values<-cbind(sapply(bal.variables, function (x) t.test(complete_data[complete_data$attrition=="1",][,x],complete_data[complete_data$attrition=="0",][,x]))[3,])
 bal_attr_final <- do.call(data.frame, # creating a table combining the mean values and p-values
                  list(TreatmentGroup = apply(round(complete_data[,bal.variables][complete_data$attrition=="1",], digits=3), 2, mean, na.rm=TRUE),
@@ -91,8 +107,9 @@ bal_attr_final <- do.call(data.frame, # creating a table combining the mean valu
                       t.test=p.values))
 print(bal_attr_final , digits=4)
 
-# Comparing observable characteristics of the attrition group with the characteristics of the overall sample, separating treatment and control
-# 1. Control group: attrition & final sample
+
+##  Comparing observable characteristics of the attrition group with the characteristics of the overall sample, separating treatment and control 
+# 1. Control group: attrition & final sample  (SI: bottom left)
 p.values0<-cbind(sapply(bal.variables, function (x) t.test(complete_data[complete_data$treatment==0 & complete_data$attrition=="0",][,x],complete_data[complete_data$treatment==0 & complete_data$attrition=="1",][,x]))[3,])
 balance_attrition0 <- do.call(data.frame, # creating a table combining the mean values and p-values
                               list(CntrlParticipated = apply(complete_data[,bal.variables][complete_data$treatment==0 &complete_data$attrition=="0",], 2, mean, na.rm=TRUE),
@@ -102,7 +119,7 @@ balance_attrition0 <- do.call(data.frame, # creating a table combining the mean 
                                    t.test=p.values0))
 print(balance_attrition0, digits=4) # Control/Control Attrition
 
-# 2. Treatment group: attrition & final sample
+# 2. Treatment group: attrition & final sample (SI: bottom right)
 p.values<-cbind(sapply(bal.variables, function (x) t.test(complete_data[complete_data$treatment==1 & complete_data$attrition=="0",][,x], complete_data[complete_data$treatment==1 & complete_data$attrition=="1",][,x]))[3,])
 balance_attrition1 <- do.call(data.frame, # creating a table combining the mean values and p-values
                list(TreatParticipated = apply(complete_data[,bal.variables][complete_data$treatment==1 & complete_data$attrition=="0",], 2, mean, na.rm=TRUE),
@@ -112,15 +129,6 @@ balance_attrition1 <- do.call(data.frame, # creating a table combining the mean 
                     t.test=p.values))
 print(balance_attrition1, digits=4) # Treatment/Treatment Attrition
 
-# Comparing treatment and control attrition samples
-p.values_comp <- cbind(sapply(bal.variables, function (x) t.test(complete_data[complete_data$treatment==0 & complete_data$attrition=="1",][,x], complete_data[complete_data$treatment==1 & complete_data$attrition=="1",][,x]))[3,])
-balance_attr <- do.call(data.frame, # creating a table combining the mean values and p-values
-                              list(CntrlAttrition = apply(complete_data[,bal.variables][complete_data$treatment==0 & complete_data$attrition=="1",], 2, mean, na.rm=TRUE),
-                                   CntrlAttrition_SD =  apply(complete_data[,bal.variables][complete_data$treatment==0 & complete_data$attrition=="1",], 2, sd, na.rm=TRUE),
-                                   TreatAttrition =  apply(complete_data[,bal.variables][complete_data$treatment==1 & complete_data$attrition=="1",], 2, mean, na.rm=TRUE),
-                                   TreatAttrition_SD =  apply(complete_data[,bal.variables][complete_data$treatment==1 & complete_data$attrition=="1",], 2, sd, na.rm=TRUE),
-                                   t.test=p.values_comp))
-print(balance_attr, digits=4) # Comparing treatment and control attrition
 
 # ---------------------------------------
 #    Table S5: Intention-to-Treat Results
@@ -319,7 +327,6 @@ print(tableS6, digits=3)
 # 2. exclude those cases, and re-estimate the model
                                                                           
 var <- c("outgroup_index","outgroup_princomp","c_news","swb") # main outcome variables
-
 sapply(var, function (i){
 sec <- lm(as.formula(paste0(i,"~","treatment")), data=final_data)
 cookoutgroup_index<-cooks.distance(sec) 
@@ -328,6 +335,9 @@ final_data$rownumber <- as.numeric(rownames(final_data))
 rep_rmalloutlier <- final_data[ ! final_data$rownumber %in% influential,]
 print(reg_res_mod3(paste0(i), rep_rmalloutlier))
 })
+# These values form the last two columns of table S7; 
+# the first two columns are just values extracted from table S5-S6 (for easier comparison)
+
 
 
 # --------------------------------------

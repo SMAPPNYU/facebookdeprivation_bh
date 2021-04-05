@@ -121,7 +121,7 @@ abline(h = 0, v=0, col="gray",lty=2,lwd=2.5)
 segments(coef.vec.2-qnorm(.975)*se.vec.2, y.axis-adjust, coef.vec.2+qnorm(.975)*se.vec.2, y.axis-adjust,lwd = 1.5, col = c("blue"))
 points(coef.vec.2, y.axis-adjust,pch = 17, cex = 1, col = c("blue"))
 legend("bottom", 
-       legend = c("Above median", "Below median"), 
+       legend = c("Born after the war", "Born prior/during the war"), 
        col = c("red", "blue"), xpd=TRUE,
        pch = c(16,17), 
        bty = T,

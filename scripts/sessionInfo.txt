@@ -1,0 +1,26 @@
+R version 3.6.1 (2019-07-05)
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+Running under: macOS Mojave 10.14.6
+
+Matrix products: default
+BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] readr_1.3.1     tibble_3.1.0    lmtest_0.9-37   zoo_1.8-6       sandwich_2.5-1  plotly_4.9.0    devtools_2.4.0  usethis_2.0.1   Rmisc_1.5       plyr_1.8.4      lattice_0.20-38 estimatr_0.30.2 stringr_1.4.0  
+[14] ggpubr_0.2.3    magrittr_1.5    ggplot2_3.2.1  
+
+loaded via a namespace (and not attached):
+ [1] httr_1.4.2        pkgload_1.2.1     tidyr_1.0.0       jsonlite_1.7.2    viridisLite_0.3.0 modelr_0.1.5      stargazer_5.2.2   Formula_1.2-3     assertthat_0.2.1  cellranger_1.1.0  remotes_2.3.0    
+[12] sessioninfo_1.1.1 pillar_1.5.1      backports_1.1.4   glue_1.4.2        digest_0.6.21     ggsignif_0.6.0    rvest_0.3.4       colorspace_1.4-1  htmltools_0.4.0   psych_1.9.12.31   pkgconfig_2.0.3  
+[23] broom_0.7.6       haven_2.1.1       purrr_0.3.4       xtable_1.8-4      mvtnorm_1.0-11    scales_1.0.0      processx_3.5.1    emmeans_1.5.5-1   generics_0.0.2    ellipsis_0.3.1    cachem_1.0.4     
+[34] withr_2.4.1       lazyeval_0.2.2    cli_2.4.0         mnormt_1.5-5      readxl_1.3.1      crayon_1.3.4      memoise_2.0.0     estimability_1.3  ps_1.6.0          fs_1.5.0          fansi_0.4.0      
+[45] nlme_3.1-140      xml2_1.2.2        forcats_0.4.0     pkgbuild_1.2.0    tools_3.6.1       data.table_1.12.2 prettyunits_1.0.2 hms_0.5.1         lifecycle_1.0.0   munsell_0.5.0     callr_3.6.0      
+[56] compiler_3.6.1    rlang_0.4.10      grid_3.6.1        rstudioapi_0.13   htmlwidgets_1.3   testthat_3.0.2    gtable_0.3.0      DBI_1.0.0         R6_2.4.0          lubridate_1.7.4   dplyr_1.0.6      
+[67] fastmap_1.0.1     utf8_1.1.4        rprojroot_2.0.2   desc_1.3.0        stringi_1.4.3     parallel_3.6.1    Rcpp_1.0.2        vctrs_0.3.7       tidyselect_1.1.0  coda_0.19-3      

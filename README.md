@@ -42,7 +42,20 @@ Within the "figures" folder are the three main figures presented in the main tex
 
 Repository prepared by Nejla Asimovic.
 
-Paper can be cited as: BibTeX citation will be added once the paper is published.
+Paper can be cited as: @article {Asimovice2022819118,
+	author = {Asimovic, Nejla and Nagler, Jonathan and Bonneau, Richard and Tucker, Joshua A.},
+	title = {Testing the effects of Facebook usage in an ethnically polarized setting},
+	volume = {118},
+	number = {25},
+	elocation-id = {e2022819118},
+	year = {2021},
+	doi = {10.1073/pnas.2022819118},
+	publisher = {National Academy of Sciences},
+	issn = {0027-8424},
+	URL = {https://www.pnas.org/content/118/25/e2022819118},
+	eprint = {https://www.pnas.org/content/118/25/e2022819118.full.pdf},
+	journal = {Proceedings of the National Academy of Sciences}
+	}
 
 
 

@@ -56,13 +56,5 @@ Paper can be cited as [BIBTEX]:
 	URL = {https://www.pnas.org/content/118/25/e2022819118},
 	eprint = {https://www.pnas.org/content/118/25/e2022819118.full.pdf},
 	journal = {Proceedings of the National Academy of Sciences}
-	}```
-
-
-
-
-
-
-
-
-
+	}
+```

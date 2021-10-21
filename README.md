@@ -40,7 +40,8 @@ Within the "figures" folder are the three main figures presented in the main tex
 
 ## Authors
 
-Repository prepared by Nejla Asimovic.
+Repository prepared by Nejla Asimovic. 
+OSF project with the PAP: https://osf.io/f8dwz/ 
 
 Paper can be cited as [BIBTEX]: 
 ```
